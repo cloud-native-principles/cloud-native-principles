@@ -1,76 +1,76 @@
 # Cloud Native Immutable Infrastructure Principles
 
-_**L1**_ _- If infrastructure is_ _**immutable**, it is easily_ _**reproduced1**_,2_,_ _**consistent3**,_ _**disposable4**_,5_, will have a_ _**repeatable6 provisioning process**, and will not have configuration or artifacts that are modifiable in place._
+_**L1**_ _- If infrastructure is_ _**immutable**, it is easily_ _**reproduced[1]**_,[2]_,_ _**consistent[3]**,_ _**disposable[4]**_,[5]_, will have a_ _**repeatable[6] provisioning process**, and will not have configuration or artifacts that are modifiable in place._
 
 Many qualities characterize an immutable process. Reproducibility, consistency, disposability and repeatability are mandatory attributes in any well designed infrastructure process, including an immutable one.
 
-_**L2**_ _- If the provisioning of cloud native infrastructure is dynamic, it will use unattended code execution789 with declarative configuration10_,11,12,13,14_._
+_**L2**_ _- If the provisioning of cloud native infrastructure is dynamic, it will use unattended code execution[7][8][9] with declarative configuration[10]_,[11],[12],[13],[14]_._
 
 The gold standard for cloud infrastructure is for it be able to be provisioned without any assistance. The tools that provision that infrastructure should accept declarative configuration as inputs.
 
-_**L3**_ _- If a cloud native_ _**infrastructure element15**_,16 _\(**compute, storage, or network**\) is_ _**provisioned17**_,18,19,20,21,22_, that element is_ _**ready for use**._
+_**L3**_ _- If a cloud native_ _**infrastructure element[15]**_,[16] _\(**compute, storage, or network**\) is_ _**provisioned[17]**_,[18],[19],[20],[21],[22]_, that element is_ _**ready for use**._
 
 _**L4**_ _- If a cloud native infrastructure element is_ _**provisioned**, it will be provisioned_ _**immutably**._
 
 Once immutable infrastructure \(the orchestrator and all of the software and hardware that it depends on\) is provisioned, the infrastructure is not changed after it is made ready for use. New changes to the infrastructure are rolled out as new instances of infrastructure.
 
-_**L5**_ _- If an infrastructure element’s provisioning is_ _**immutable**, its_ _**configuration23**_,24,25 _will_ _**not**_ _be_ _**changed.**_
+_**L5**_ _- If an infrastructure element’s provisioning is_ _**immutable**, its_ _**configuration[23]**_,[24],[25] _will_ _**not**_ _be_ _**changed.**_
 
-In the immutable change management model_**38**_, immutable infrastructure elements are built from scratch \(or from artifacts and configuration with a known state\) as a new instance of the element. The artifacts of an immutable infrastructure are composed of scripts, binaries, containers, images, and server templates while the configuration is the declaration of what that instructure should look like after it is instantiated. If the infrastructure element is hardware, such as a physical layer 1 networking device, it should be ‘flashed’ \(a complete replacement of its software\) for its artifact updates. The _configuration_ for such a device should be done with an atomic application of a versioned configuration file, which replaces all of the configuration on the device at once.
+In the immutable change management model_**[38]**_, immutable infrastructure elements are built from scratch \(or from artifacts and configuration with a known state\) as a new instance of the element. The artifacts of an immutable infrastructure are composed of scripts, binaries, containers, images, and server templates while the configuration is the declaration of what that instructure should look like after it is instantiated. If the infrastructure element is hardware, such as a physical layer 1 networking device, it should be ‘flashed’ \(a complete replacement of its software\) for its artifact updates. The _configuration_ for such a device should be done with an atomic application of a versioned configuration file, which replaces all of the configuration on the device at once.
 
 The choice of **change management model** is **separate** from a **deployment strategy**, such as a phoenix46 or canary47 deployment strategy. Any deployment strategy that supports immutable infrastructure \(i.e. when infrastructure such as a server needs a configuration or artifact change, a brand new instance of that infrastructure is created\) can be used.
 
-_**L6**_ _- If an infrastructure element is_ _**immutable26**_,27,28,29,30,31_, its_ _**base**_ _**configuration**_ _is stored as a_ _**template32**_,33,34,35,36,37_._
+_**L6**_ _- If an infrastructure element is_ _**immutable[26]**_,[27],[28],[29],[30],[31]_, its_ _**base**_ _**configuration**_ _is stored as a_ _**template[32]**_,[33],[34],[35],[36],[37]_._
 
  An infrastructure **image** resides at the lowest level and usually includes an operating system, but may also include an **orchestrator** for the higher level applications or any other dependencies that have a low rate of change but are needed for applications. This **image** is managed using a **template** **system** with **versioning** \(e.g. a versioned image of an operating system\) and minimizes the MTTR44 \(mean time to recovery\) and deployment time of the infrastructure.
 
-_**L7**_ _- If there is_ _**configuration**_ _outside of an infrastructure element’s template, it is_ _**versioned**_ _and stored in_ _**source control**_41,43_._
+_**L7**_ _- If there is_ _**configuration**_ _outside of an infrastructure element’s template, it is_ _**versioned**_ _and stored in_ _**source control**_[41],[43]_._
 
 Any configuration that is applied after an infrastructure’s base image/template has been created \(also called **bootstrapping**\) will be applied **before** the infrastructure is considered ready for use. After the element is in use, no more configuration is allowed.
 
-_**L8**_ _- If an infrastructure element is_ _**immutable**, the_ _**dependencies**_ _of the applications that run on that infrastructure element will be_ _**decoupled**_48,49,50,51_**52**_,53 _from that_ _**infrastructure element**_
+_**L8**_ _- If an infrastructure element is_ _**immutable**, the_ _**dependencies**_ _of the applications that run on that infrastructure element will be_ _**decoupled**_[48],[49],[50],[51]_**[52]**_,[53] _from that_ _**infrastructure element**_
 
 An infrastructure element such as a generic host server, a network device, or a storage device, has a different rate of change with respect to, and is separate from, the applications that are deployed on or in relation to those elements. For instance, a generic host server42 can act as a network router, but should still have separation between the dependencies that make it ready for use to the network applications deployed on that server.
 
 A microservice has all of its dependencies deployed with it during its deployment phase of the pipeline, which is separate from the infrastructure’s pipeline. These dependencies are decoupled from the infrastructure environment \(e.g. a node\) so the rate of change of the environment is separate from the microservices it hosts.
 
-_**L9**_ _- If an infrastructure element is_ _**immutable**, the applications that run on that infrastructure element will run in an_ _**unprivileged mode54**_,55
+_**L9**_ _- If an infrastructure element is_ _**immutable**, the applications that run on that infrastructure element will run in an_ _**unprivileged mode[54]**_,[55]
 
 Applications should not require any high level of security permissions on the underlying infrastructure.
 
-_**L10**_ _- If an application and its dependencies are_ _**decoupled**_ _from the infrastructure element that it runs on, the_ _**application**_ _will be_ _**orchestrated56**._
+_**L10**_ _- If an application and its dependencies are_ _**decoupled**_ _from the infrastructure element that it runs on, the_ _**application**_ _will be_ _**orchestrated[56]**._
 
-All application components that run on the infrastructure, except data57,58,59,60,61, will be orchestrated and built from versioned artifacts and configuration during each deploy.
+All application components that run on the infrastructure, except data[57],[58],[59],[60],[61], will be orchestrated and built from versioned artifacts and configuration during each deploy.
 
-_**L11**_ _- If an infrastructure element provides a_ _**service62**_,63,64,65_, that service will be available via_ _**service discovery.**_
+_**L11**_ _- If an infrastructure element provides a_ _**service62**_,[63],[64],[65]_, that service will be available via_ _**service discovery.**_
 
-_**L12**_ _- If an infrastructure is_ _**immutable**, its changes will be managed via a_ _**change management pipeline66**_,67,68
+_**L12**_ _- If an infrastructure is_ _**immutable**, its changes will be managed via a_ _**change management pipeline66**_,[67],[68]
 
-_**L13**_ _- If_ _**artifacts69**_,70 _are_ _**provisioned**_ _as new_ _**immutable**_ _**infrastructure**_ _**elements**, they are deployed using_ _**templates**._
+_**L13**_ _- If_ _**artifacts[69]**_,[70] _are_ _**provisioned**_ _as new_ _**immutable**_ _**infrastructure**_ _**elements**, they are deployed using_ _**templates**._
 
 The pipeline for low level infrastructure artifacts should combine them into templates or images which reduces the provisioning time for everything dependent on them.
 
-_**L14**_ _- If an immutable infrastructure has a change management pipeline, the_ _**change management pipeline**_ _applies_ _**tests71**_,72,73,74,75,76 _to the codebase with increasing levels of complexity._
+_**L14**_ _- If an immutable infrastructure has a change management pipeline, the_ _**change management pipeline**_ _applies_ _**tests[71]**_,[72],[73],[74],[75],[76] _to the codebase with increasing levels of complexity._
 
-_**L15**_ _- If the immutable or idempotent infrastructure has dependencies, the_ _**dependencies**_ _**constrain the relationship structure77**_ _between_ _**multiple organizations**_
+_**L15**_ _- If the immutable or idempotent infrastructure has dependencies, the_ _**dependencies**_ _**constrain the relationship structure[77]**_ _between_ _**multiple organizations**_
 
-_**L16**_ _- If the immutable or idempotent infrastructure has a dependency, that_ _**dependency**_ _will be_ _**delivered78**_ _from a_ _**provider**_ _to a_ _**consumer79**_ _in the form of a_ _**library8081**_ _or a_ _**service instance82**_ _via a_ _**pipeline**._
+_**L16**_ _- If the immutable or idempotent infrastructure has a dependency, that_ _**dependency**_ _will be_ _**delivered[78]**_ _from a_ _**provider**_ _to a_ _**consumer[79]**_ _in the form of a_ _**library[80][81]**_ _or a_ _**service instance[82]**_ _via a_ _**pipeline**._
 
-All software components delivered by a provider need to have the ability to be integration **tested**85,86 using the consumer’s pipeline95 in a non-production environment. This should be via the consumer’s own pipeline via a library or a self-serviced instance, or a hosted environment_**83**_ given by the provider.
+All software components delivered by a provider need to have the ability to be integration **tested**[85],[86] using the consumer’s pipeline[95] in a non-production environment. This should be via the consumer’s own pipeline via a library or a self-serviced instance, or a hosted environment_**[83]**_ given by the provider.
 
-The software should resist **breaking** the **contract** formed **between** the **provider** of that software and the **consumer** of that software. This means paying attention to forward and backward compatibility87,88,89,90,91,92 with respect to interfaces between the provider and consumer. Any breaks in compatibility should force a major version93,94 change.
+The software should resist **breaking** the **contract** formed **between** the **provider** of that software and the **consumer** of that software. This means paying attention to forward and backward compatibility[87],[88],[89],[90],[91],[92] with respect to interfaces between the provider and consumer. Any breaks in compatibility should force a major version[93],[94] change.
 
 **LIST OF CONTRIBUTORS**
 
 If you would like credit for helping with these documents \(for either this document or any of the other four documents linked above\), please add your name to the list of contributors.
 
-W Watson Vulk Coop [w.watson@vulk.coop](mailto:w.watson@vulk.coop)
+W Watson Vulk Coop 
 
-Taylor Carpenter Vulk Coop [taylor@vulk.coop](mailto:taylor@vulk.coop)
+Taylor Carpenter Vulk Coop 
 
-Denver Williams Vulk Coop [denver@debian.nz](mailto:denver@debian.nz)
+Denver Williams Vulk Coop 
 
-Jeffrey Saelens Charter Communications [Jeffrey.saelens@charter.com](mailto:Jeffrey.saelens@charter.com)
+Jeffrey Saelens Charter Communications 
 
 ## Endnotes
 
