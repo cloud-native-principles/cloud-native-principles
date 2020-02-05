@@ -50,6 +50,15 @@ _**L12**_ _- If an_ _**operator**_ _combines cloud native network functions into
 
 _**L13**_ _- If a_ _**cloud native network function developer**_ _creates networking software, it will_ _**expose**_ _a declarative API._
 
+**LIST OF CONTRIBUTORS**
+
+If you would like credit for helping with these documents \(for either this document or any of the other four documents linked above\), please add your name to the list of contributors.
+
+W Watson Vulk Coop 
+
+Taylor Carpenter Vulk Coop 
+
+Denver Williams Vulk Coop 
 ## Endnotes
 
 1. An important property of the OSI Reference Model is that it enables standardization of the protocols used in the protocol stacks, leading to the specification of interfaces between layers. Furthermore, an important feature of the model is the distinction it makes between **specification \(layers\)** and **implementation \(protocols\)**, thus leading to openness and flexibility. Openness is the ability to develop new protocols for a particular layer and independently of other layers as network technologies evolve. Openness enables competition, leading to low-cost products. Flexibility is the ability to combine different protocols in stacks, enabling the interchange of protocols in stacks as necessary. Serpanos, Dimitrios,Wolf, Tilman. Architecture of Network Systems \(The Morgan Kaufmann Series in Computer Architecture and Design\) \(p. 14\). Elsevier Science. Kindle Edition.
