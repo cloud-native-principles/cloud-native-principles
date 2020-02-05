@@ -2,7 +2,7 @@
 
 The concepts of immutable infrastructure, declarative apis, and microservices each deserve individual treatment. The following statements are high level generalizations that can help lead towards an understanding of these three concepts before diving deeply into each of them individually.
 
-_**L1**_ _- If a project is_ _**cloud native1**_,[2]_, it uses_ _**immutable infrastructure3**,_ _**declarative apis**, and_ _**microservices**._
+_**L1**_ _- If a project is_ _**cloud native[1]**_,[2]_, it uses_ _**immutable infrastructure3**,_ _**declarative apis**, and_ _**microservices**._
 
 _**L2**_ _- If infrastructure is_ _**immutable**, it is easily_ _**reproduced[4]**_,[5]_,_ _**consistent[6]**,_ _**disposable [7]**_,[8]_, will have a_ _**repeatable[9] deployment process**, and will not have configuration or artifacts that are modifiable in place._
 
