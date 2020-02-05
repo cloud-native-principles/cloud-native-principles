@@ -6,7 +6,7 @@ In order to talk about CNFs, we need to define cloud native\[1\]. Cloud native s
 
 **How are cloud native systems loosely coupled?**
 
-Cloud native systems have a clear separation between their processes\[2\]. These microservices usually use a technology like containers and aim for one process per container3. Cloud native applications also have all of their dependencies packaged with them during the build phase which is then used for deployment4.
+Cloud native systems have a clear separation between their processes\[2\]. These microservices usually use a technology like containers and aim for one process per container[3]. Cloud native applications also have all of their dependencies packaged with them during the build phase which is then used for deployment[4].
 
 **How is immutable infrastructure provisioned?**
 
