@@ -2,7 +2,7 @@
 
 **What is a CNF?**
 
-In order to talk about CNFs, we need to define [cloud native][^1]. Cloud native systems are, among other things, a set of loosely coupled services. These services, also known as microservices, are deployed onto immutable infrastructure while being managed by an orchestrator. This paper includes four links to other papers that go into detail about the definitions of cloud native, microservices, immutable infrastructure, and CNFs from an OSI layer perspective.
+In order to talk about CNFs, we need to define [cloud native][1]. Cloud native systems are, among other things, a set of loosely coupled services. These services, also known as microservices, are deployed onto immutable infrastructure while being managed by an orchestrator. This paper includes four links to other papers that go into detail about the definitions of cloud native, microservices, immutable infrastructure, and CNFs from an OSI layer perspective.
 
 **How are cloud native systems loosely coupled?**
 
