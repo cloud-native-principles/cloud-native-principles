@@ -2,27 +2,27 @@
 
 **What is a CNF?**
 
-In order to talk about CNFs, we need to define cloud native\[1\]. Cloud native systems are, among other things, a set of loosely coupled services. These services, also known as microservices, are deployed onto immutable infrastructure while being managed by an orchestrator. This paper includes four links to other papers that go into detail about the definitions of cloud native, microservices, immutable infrastructure, and CNFs from an OSI layer perspective.
+In order to talk about CNFs, we need to define [cloud native](cloud-native-principles.md)\[1\]. Cloud native systems are, among other things, a set of loosely coupled services. These services, also known as microservices, are deployed onto immutable infrastructure while being managed by an orchestrator. This paper includes four links to other papers that go into detail about the definitions of cloud native, microservices, immutable infrastructure, and CNFs from an OSI layer perspective.
 
-**How are cloud native systems loosely coupled?**
+**How are** [**cloud native**](cloud-native-principles.md) **systems loosely coupled?**
 
-Cloud native systems have a clear separation between their processes\[2\]. These microservices usually use a technology like containers and aim for one process per container[3]. Cloud native applications also have all of their dependencies packaged with them during the build phase which is then used for deployment[4].
+Cloud native systems have a clear separation between their processes\[2\]. These [microservices](cloud-native-microservice-principles.md) usually use a technology like containers and aim for one process per container\[3\]. Cloud native applications also have all of their dependencies packaged with them during the build phase which is then used for deployment\[4\].
 
-**How is immutable infrastructure provisioned?**
+**How is** [**immutable infrastructure**](cloud-native-immutable-infrastructure-principles.md) **provisioned?**
 
-Immutable infrastructure \(the orchestrator and all of the software and hardware that it depends on\) is provisioned using **baked** and **versioned** **templates\[5\]** \(e.g. server images produced from packer\[10\]\) or a combination of templates and **bootstrapping\[6\]** \(some repeatable and versioned process that is applied to the template e.g. Kubeadm\). The underlying infrastructure is not changed after it is made ready for use. New changes to the infrastructure are rolled out as new instances of infrastructure.
+[Immutable infrastructure](cloud-native-immutable-infrastructure-principles.md) \(the orchestrator and all of the software and hardware that it depends on\) is provisioned using **baked** and **versioned** **templates\[5\]** \(e.g. server images produced from packer\[10\]\) or a combination of templates and **bootstrapping\[6\]** \(some repeatable and versioned process that is applied to the template e.g. Kubeadm\). The underlying infrastructure is not changed after it is made ready for use. New changes to the infrastructure are rolled out as new instances of infrastructure.
 
 **How are cloud native systems deployed?**
 
-Cloud native applications are deployed onto immutable infrastructure \(generic host servers that support orchestration\[7\]\). Cloud native applications are not changed after deployment. New features for an application are rolled out as new artifacts and con\figuration \(e.g. containers\)
+Cloud native applications are deployed onto immutable infrastructure \(generic host servers that support orchestration\[7\]\). Cloud native applications are not changed after deployment. New features for an application are rolled out as new artifacts and configuration \(e.g. containers\)
 
 **How are cloud native systems configured?**
 
-Cloud native systems are configured declaratively8. This means that the system configuration declares “what” a loosely coupled system should look like, not ”how” the system should be created. The “how” of the application is determined by the tooling \(e.g. the orchestrator, operators, and CRDs\).
+Cloud native systems are configured declaratively\[8\]. This means that the system configuration declares “what” a loosely coupled system should look like, not ”how” the system should be created. The “how” of the application is determined by the tooling \(e.g. the orchestrator, operators, and CRDs\).
 
 **So what is a CNF, actually?**
 
-A CNF is network functionality delivered in software via cloud native development and delivery practices. This functionality lives within the layers of the OSI Model\[9\] which is used to define a network’s stack. The lower layers \(layers 1 and in some cases layer 2\) are provisioned for the higher layers \(2-7\) to provide transport. These higher layers in this instance act as applications which act upon a network payload \(frames, packets datagrams etc…\). A physical layer 1 networking device should be “flashed” with a complete replacement of its artifacts for updates. The configuration for physical layer 1 is done with an atomic application of a versioned configuration file, which replaces all of the configuration on the device at once. Virtual Layer 1 \(and some layer 2\) is managed via templated images and bootstrapping, while layers 2 through 7 are managed by higher level orchestration and/or an established control plane \(an orchestrator pushing configuration versus a network protocol modifying a route table\).
+A CNF is network functionality delivered in software via cloud native development and delivery practices. This functionality lives within the layers of the [OSI Model](cloud-native-declarative-osi-principles.md)\[9\] which is used to define a network’s stack. The lower layers \(layers 1 and in some cases layer 2\) are provisioned for the higher layers \(2-7\) to provide transport. These higher layers in this instance act as applications which act upon a network payload \(frames, packets datagrams etc\). A physical layer 1 networking device should be “flashed” with a complete replacement of its artifacts for updates. The configuration for physical layer 1 is done with an atomic application of a versioned configuration file, which replaces all of the configuration on the device at once. Virtual Layer 1 \(and some layer 2\) is managed via templated images and bootstrapping, while layers 2 through 7 are managed by higher level orchestration and/or an established control plane \(an orchestrator pushing configuration versus a network protocol modifying a route table\).
 
 **Why is this relevant to Service Providers?**
 
