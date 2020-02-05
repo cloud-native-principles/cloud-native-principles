@@ -6,35 +6,35 @@
 
 _**L1**_ _- If an organization or a set of organizations deliver_ _**cloud native software**, the software’s features will be delivered as_ _**microservice software \(a microservice, set of microservices, or component of a microservice\)**,_ _**declarative APIs**, and_ _**immutable infrastructure**._
 
-_**L2**_ _- If an organization develops microservice software, the features of the microservice software will be constrained by the_ _**organization's business capabilities1**_,2,3,4 _and_ _**structure5**._
+_**L2**_ _- If an organization develops microservice software, the features of the microservice software will be constrained by the_ _**organization's business capabilities1**_,[2],[3],[4] _and_ _**structure[5]**._
 
 Conway’s law predicts that a system will represent the organizational structure that created that system. The various groups within an organization have different rates of change and concerns with respect to business capability. The delivery of microservice software harnesses the existing group boundaries within an organization and works with, not against, the different rates of change and business capabilities residing within those boundaries.
 
 _**L3**_ _- If an organization develops microservice software, the_ _**responsibility**_ _of the microservice software from_ _**inception to delivery**_ _will be with that organization._
 
-_**L4**_ _- If an organization has all of the responsibilities for the microservice software, that organization has the structure of a_ _**product team6**._
+_**L4**_ _- If an organization has all of the responsibilities for the microservice software, that organization has the structure of a_ _**product team[6]**._
 
 Microservice teams are product delivery teams. These teams are responsible for all parts of features delivery spanning from requirements gathering to production deployment. This allows the team to deploy based on business capability and to be sensitive to those capabilities’ rate of change.
 
-_**L5**_ _- If a product team has responsibility for microservice software, the_ _**rate of change7**_,8,9,10,11,12_,_ _**cycle time13**_,14_, and_ _**pipeline15**_,16,17,18 _for that microservice software will be driven by that_ _product_ _team._
+_**L5**_ _- If a product team has responsibility for microservice software, the_ _**rate of change[7]**_,[8],[9],[10],[11],[12]_,_ _**cycle time[13]**_,[14]_, and_ _**pipeline[15]**_,[16],[17],[18] _for that microservice software will be driven by that_ _product_ _team._
 
 Similar to how a building’s components have different **rates of change** \(foundation, plumbing, exterior, etc\), software components and services also have different rates of change. When we split up services based on business capability the **responsibility** for **changes** and **actual rate of change** are **coupled**. At the same time **conflicting** **agendas**, road maps, and concerns are **decoupled**.
 
 When the new freedom given with respect to rate of change microservice teams can then adopt techniques that are sensitive to **cycle time** and **MTTR** \(mean time to recovery\). This leads to using a software delivery methods and best practices that are compatible with deployment pipelines.
 
-_**L6**_ _- If the microservice has dependencies, the_ _**dependencies**_ _constrain the_ _**relationship**_ _structure between_ _**multiple organizations19**_,20
+_**L6**_ _- If the microservice has dependencies, the_ _**dependencies**_ _constrain the_ _**relationship**_ _structure between_ _**multiple organizations[19]**_,[20]
 
 Organizations and product teams that deliver software require varying levels of coordination with one another. Teams that have higher levels of coordination with other teams need to coordinate deployment pipelines and integration testing.
 
-_**L7**_ _- If the microservice software has a dependency, it will be delivered from a_ _**provider21**_ _to a_ _**consumer**_ _in the form of a_ _**library22**_,23 _or a_ _**service instance24**_,25,26 _via a pipeline._
+_**L7**_ _- If the microservice software has a dependency, it will be delivered from a_ _**provider[21]**_ _to a_ _**consumer**_ _in the form of a_ _**library[22]**_,[23] _or a_ _**service instance[24]**_,[25],[26] _via a pipeline._
 
 The rate of change between providers of microservice software and consumers of that software needs to be managed. When software is delivered as a library, it has a release number that can be referenced in the pipeline of the consumer. When software is delivered as a service instance, it can either be self service \(and therefore can be referenced via release number in the consumer’s pipeline\) or it can be hosted. If microservice software is hosted, there needs to be a way to reference a test instance of that service for the consumers pipeline. The license registration process for service instances should be automated, flexible, and should avoid impeding the development of a deployment pipeline.
 
-_**L8**_ _- If a microservice is deployed, the microservice will be_ _**deployed**_ _with_ _**all of its library dependencies27**_,28,29,30,31,32
+_**L8**_ _- If a microservice is deployed, the microservice will be_ _**deployed**_ _with_ _**all of its library dependencies[27]**_,[28],[29],[30],[31],[32]
 
 The microservice has all of its dependencies deployed with it during the deployment phase of the pipeline. These dependencies are decoupled from the infrastructure environment \(e.g. a node\) so the rate of change of the environment is separate from the microservices it hosts.
 
-_**L9**_ _- If a microservice is_ _**deployed,33**_,34,35 _the pipeline artifacts and configuration for the microservice will be_ _**versioned**_ _and associated with the_ _**stack36**_,37 _of infrastructure elements that were_ _**provisioned**_ _with_ _it._
+_**L9**_ _- If a microservice is_ _**deployed,[33]**_,[34],[35] _the pipeline artifacts and configuration for the microservice will be_ _**versioned**_ _and associated with the_ _**stack[36]**_,[37] _of infrastructure elements that were_ _**provisioned**_ _with_ _it._
 
 The provisioning of infrastructure and the deployment of a microservice are related. The deployment of a microservice must know the version of the infrastructure that it was deployed and tested with.
 
@@ -44,7 +44,7 @@ Cloud native network functions follow the same principles as cloud native micros
 
 _**L10**_ _- If an organization or a set organizations deliver_ _**cloud native network functions**, the software’s features will be delivered as_ _**microservice software \(a microservice, set of microservices, or component of a microservice\)**._
 
-_**L11**_ _- If a pipeline provisions network infrastructure38 \(physical or virtual layer 1 and layer 239 networking functions\), it will be_ _**provisioned40**_ _using_ _**declarative configuration**._
+_**L11**_ _- If a pipeline provisions network infrastructure[38] \(physical or virtual layer 1 and layer 2[39] networking functions\), it will be_ _**provisioned40**_ _using_ _**declarative configuration**._
 
 Network infrastructure \(the platform that the cloud native network functions will be deployed into\) is provisioned \(instances are made available for use to consumers\) using declarative configuration. Configuration should designate what the outcome is, while the tools that provision that network infrastructure should create that outcome.
 
@@ -52,7 +52,7 @@ _**L12**_ _- If a pipeline_ _**provisions network infrastructure**, it will be_ 
 
 _**L13**_ _- If a_ _**provider**_ _for network infrastructure delivers_ _**software**_ _or_ _**hardware**, it will be delivered to the_ _**consumer**_ _as a_ _**library dependency**_ _or_ _**service instance**_ _\(whether self service or hosted\)._
 
-_**L14**_ _- If the provider of networking software delivers_ _**cloud native service chains**, the service chains will be_ _**composed**_ _of_ _**immutable microservices**_ _with_ _**declarative APIs41**_,42,43,44_._
+_**L14**_ _- If the provider of networking software delivers_ _**cloud native service chains**, the service chains will be_ _**composed**_ _of_ _**immutable microservices**_ _with_ _**declarative APIs41**_,[42],[43],[44]_._
 
 Cloud native network functions can be composed with one another. During this composition their configuration is not modified after deployment \(immutable\), designates the outcome of the network that is wanted \(declarative\), and not steps of how to get to that outcome \(imperative\).
 
@@ -72,13 +72,13 @@ The cloud native network functions themselves are developed in such a way as to 
 
 If you would like credit for helping with these documents \(for either this document or any of the other four documents linked above\), please add your name to the list of contributors.
 
-W Watson Vulk Coop [w.watson@vulk.coop](mailto:w.watson@vulk.coop)
+W Watson Vulk Coop
 
-Taylor Carpenter Vulk Coop [taylor@vulk.coop](mailto:taylor@vulk.coop)
+Taylor Carpenter Vulk Coop 
 
-Denver Williams Vulk Coop [denver@debian.nz](mailto:denver@debian.nz)
+Denver Williams Vulk Coop 
 
-Jeffrey Saelens Charter Communications [Jeffrey.saelens@charter.com](mailto:Jeffrey.saelens@charter.com)
+Jeffrey Saelens Charter Communications 
 
 ## Endnotes
 
