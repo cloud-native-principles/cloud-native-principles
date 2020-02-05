@@ -2,19 +2,19 @@
 
 **What is a CNF?**
 
-In order to talk about CNFs, we need to define [cloud native][1]. Cloud native systems are, among other things, a set of loosely coupled services. These services, also known as microservices, are deployed onto immutable infrastructure while being managed by an orchestrator. This paper includes four links to other papers that go into detail about the definitions of cloud native, microservices, immutable infrastructure, and CNFs from an OSI layer perspective.
+In order to talk about CNFs, we need to define cloud native[1]. Cloud native systems are, among other things, a set of loosely coupled services. These services, also known as microservices, are deployed onto immutable infrastructure while being managed by an orchestrator. This paper includes four links to other papers that go into detail about the definitions of cloud native, microservices, immutable infrastructure, and CNFs from an OSI layer perspective.
 
 **How are cloud native systems loosely coupled?**
 
-Cloud native systems have a clear separation between their processes2. These [microservices](https://docs.google.com/document/d/1EYsRWitSA9lxE11c3ffa9oRxPE9YQPbsvfMjSaHmS5I) usually use a technology like containers and aim for one process per container3. Cloud native applications also have all of their dependencies packaged with them during the build phase which is then used for deployment4.
+Cloud native systems have a clear separation between their processes[2]. These microservices usually use a technology like containers and aim for one process per container3. Cloud native applications also have all of their dependencies packaged with them during the build phase which is then used for deployment4.
 
 **How is immutable infrastructure provisioned?**
 
-[Immutable infrastructure](https://docs.google.com/document/d/1fwV3vZB5IgHb6uUgQpHts9mFR0HheYbIrlg9hGfWYfA) \(the orchestrator and all of the software and hardware that it depends on\) is provisioned using **baked** and **versioned** **templates5** \(e.g. server images produced from packer10\) or a combination of templates and **bootstrapping6** \(some repeatable and versioned process that is applied to the template e.g. Kubeadm\). The underlying infrastructure is not changed after it is made ready for use. New changes to the infrastructure are rolled out as new instances of infrastructure.
+Immutable infrastructure (the orchestrator and all of the software and hardware that it depends on) is provisioned using **baked** and **versioned** **templates[5]** (e.g. server images produced from packer[10]) or a combination of templates and **bootstrapping[6]** (some repeatable and versioned process that is applied to the template e.g. Kubeadm). The underlying infrastructure is not changed after it is made ready for use. New changes to the infrastructure are rolled out as new instances of infrastructure.
 
 **How are cloud native systems deployed?**
 
-Cloud native applications are deployed onto immutable infrastructure \(generic host servers that support orchestration7\). Cloud native applications are not changed after deployment. New features for an application are rolled out as new artifacts and con\figuration \(e.g. containers\)
+Cloud native applications are deployed onto immutable infrastructure \(generic host servers that support orchestration[7]\). Cloud native applications are not changed after deployment. New features for an application are rolled out as new artifacts and con\figuration \(e.g. containers\)
 
 **How are cloud native systems configured?**
 
@@ -22,9 +22,9 @@ Cloud native systems are configured declaratively8. This means that the system c
 
 **So what is a CNF, actually?**
 
-A CNF is network functionality \(the **implementation** of a network protocol\) that is located in one of the [OSI layers](https://docs.google.com/document/d/1r-5CkVxOyqbOxzayeWYSCiBRqUZVfkPU-XPzOyYQ5cY)9. The lower layers \(layers 1 and possibly layer 2\) are provisioned for the higher layers \(2 - 7\) that act as applications deployed onto them. A physical layer 1 networking device should get a ‘flashed’, complete replacement for its artifact updates. The configuration for physical layer 1 is done with an atomic application of a versioned configuration file, which replaces all of the configuration on the device at once. Virtual Layer 1 \(and some of layer 2\) is managed by templated images and bootstrapping while layer 2 and above are managed by an orchestrator.
+A CNF is network functionality \(the **implementation** of a network protocol\) that is located in one of the OSI layers[9]. The lower layers \(layers 1 and possibly layer 2\) are provisioned for the higher layers \(2 - 7\) that act as applications deployed onto them. A physical layer 1 networking device should get a ‘flashed’, complete replacement for its artifact updates. The configuration for physical layer 1 is done with an atomic application of a versioned configuration file, which replaces all of the configuration on the device at once. Virtual Layer 1 \(and some of layer 2\) is managed by templated images and bootstrapping while layer 2 and above are managed by an orchestrator.
 
-V2: A CNF is network functionality delivered in software via cloud native development and delivery practices. This functionality lives within the layers of the [OSI Model](https://docs.google.com/document/d/1r-5CkVxOyqbOxzayeWYSCiBRqUZVfkPU-XPzOyYQ5cY)9 which is used to define a network’s stack. The lower layers \(layers 1 and in some cases layer 2\) are provisioned for the higher layers \(2-7\) to provide transport. These higher layers in this instance act as applications which act upon a network payload \(frames, packets datagrams etc…\). A physical layer 1 networking device should be “flashed” with a complete replacement of its artifacts for updates. The configuration for physical layer 1 is done with an atomic application of a versioned configuration file, which replaces all of the configuration on the device at once. Virtual Layer 1 \(and some layer 2\) is managed via templated images and bootstrapping, while layers 2 through 7 are managed by higher level orchestration and/or an established control plane \(an orchestrator pushing configuration versus a network protocol modifying a route table\).
+V2: A CNF is network functionality delivered in software via cloud native development and delivery practices. This functionality lives within the layers of the OSI Model[9] which is used to define a network’s stack. The lower layers \(layers 1 and in some cases layer 2\) are provisioned for the higher layers \(2-7\) to provide transport. These higher layers in this instance act as applications which act upon a network payload \(frames, packets datagrams etc…\). A physical layer 1 networking device should be “flashed” with a complete replacement of its artifacts for updates. The configuration for physical layer 1 is done with an atomic application of a versioned configuration file, which replaces all of the configuration on the device at once. Virtual Layer 1 \(and some layer 2\) is managed via templated images and bootstrapping, while layers 2 through 7 are managed by higher level orchestration and/or an established control plane \(an orchestrator pushing configuration versus a network protocol modifying a route table\).
 
 **Why is this relevant to Service Providers?**
 
@@ -34,17 +34,17 @@ Service providers currently find themselves at a unique transition point within 
 
 If you would like credit for helping with these documents \(for either this document or any of the other four documents linked above\), please add your name to the list of contributors.
 
-W Watson Vulk Coop [w.watson@vulk.coop](mailto:w.watson@vulk.coop)
+W Watson Vulk Coop 
 
-Taylor Carpenter Vulk Coop [taylor@vulk.coop](mailto:taylor@vulk.coop)
+Taylor Carpenter Vulk Coop 
 
-Denver Williams Vulk Coop [denver@debian.nz](mailto:denver@debian.nz)
+Denver Williams Vulk Coop 
 
-Jeffrey Saelens Charter Communications [Jeffrey.saelens@charter.com](mailto:Jeffrey.saelens@charter.com)
+Jeffrey Saelens Charter Communications
 
 ## Endnotes
 
-[^1]: “**Cloud** **native** technologies empower organizations to build and run scalable applications in modern, **dynamic** environments such as public, private, and hybrid clouds. **Containers, service meshes**, **microservices**, **immutable infrastructure,** and **declarative APIs** exemplify this approach. These techniques enable loosely coupled systems that are **resilient**, **manageable**, and **observable**. Combined with robust **automation**, they allow engineers to make high-impact changes frequently and predictably with minimal toil.
+[1]: “**Cloud** **native** technologies empower organizations to build and run scalable applications in modern, **dynamic** environments such as public, private, and hybrid clouds. **Containers, service meshes**, **microservices**, **immutable infrastructure,** and **declarative APIs** exemplify this approach. These techniques enable loosely coupled systems that are **resilient**, **manageable**, and **observable**. Combined with robust **automation**, they allow engineers to make high-impact changes frequently and predictably with minimal toil.
 
 2. Stine, Matt. Migrating to Cloud-Native Application Architecture, O'reilly, 2015, pp. 10–11 “_**Codebase**_ Each deployable app is **tracked** as one codebase tracked in **revision** control. It may have many deployed instances across multiple environments. _**Dependencies**_ An app explicitly declares and **isolates dependencie**s via appropriate tooling \(e.g., Maven, Bundler, NPM\) rather than depending on implicitly realized dependencies in its deployment environment. **Config** Configuration, or **anything** that is likely to **differ** between deployment **environments** \(e.g., development, staging, production\) is **injected** via operating system-level **environment** **variables**. _**Backing services**_ Backing services, such as **databases** or message brokers, are treated as **attached resources** and consumed **identically** across all environments. _**Build, release, run**_ The **stages** of building a **deployable** app artifact, **combining** that **artifact** with **configuration**, and **starting** one or more **processes** from that artifact/configuration combination, are strictly **separated**. _**Processes**_ The app executes as one or more **stateless** **processes** \(e.g., master/workers\) that **share** **nothing**. Any necessary state is externalized to **backing** **services** \(cache, object store, etc.\). _**Port binding**_ The app is self-contained and **exports** any/all **services** via **port binding** \(including HTTP\). _**Concurrency**_ Concurrency is usually accomplished by **scaling out app processes horizontally** \(though processes may also multiplex work via internally managed threads if desired\). _**Disposability**_ Robustness is maximized via **processes** that **start up** quickly and **shut down gracefully**. These aspects allow for **rapid elastic scaling**, deployment of changes, and **recovery** from crashes. _**Dev/prod parity**_ Continuous delivery and deployment are enabled by **keeping** **development**, **staging**, and **production** environments as **similar** as possible. _**Logs**_ Rather than managing logfiles, **treat logs as event streams**, allowing the execution environment to **collect**, **aggregate**, **index**, and **analyze** the **events** via **centralized** services. _**Admin processes**_ Administrative or **management tasks**, such as database migrations, are executed as **one-off processes** in environments identical to the app’s long-running processes.”
 
