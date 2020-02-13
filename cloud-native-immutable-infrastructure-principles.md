@@ -14,9 +14,11 @@ _**L4**_ _- If a cloud native infrastructure element is_ _**provisioned**, it wi
 
 Once immutable infrastructure \(the orchestrator and all of the software and hardware that it depends on\) is provisioned, the infrastructure is not changed after it is made ready for use. New changes to the infrastructure are rolled out as new instances of infrastructure.
 
-_**L5**_ _- If an infrastructure element’s provisioning is_ _**immutable**, its_ _**configuration[23]**_,[24],[25] _will_ _**not**_ _be_ _**changed.**_
+_**L5**_ _- If an infrastructure element’s provisioning is_ _**immutable**, its_ _**day zero configuration[23]**_,[24],[25] _will_ _**not**_ _be_ _**changed.**_
 
-In the immutable change management model_**[38]**_, immutable infrastructure elements are built from scratch \(or from artifacts and configuration with a known state\) as a new instance of the element. The artifacts of an immutable infrastructure are composed of scripts, binaries, containers, images, and server templates while the configuration is the declaration of what that instructure should look like after it is instantiated. If the infrastructure element is hardware, such as a physical layer 1 networking device, it should be ‘flashed’ \(a complete replacement of its software\) for its artifact updates. The _configuration_ for such a device should be done with an atomic application of a versioned configuration file, which replaces all of the configuration on the device at once.
+In the immutable change management model_**[38]**_, immutable infrastructure elements are built from scratch \(or from artifacts and configuration with a known state\) as a new instance of the element. The artifacts of an immutable infrastructure are composed of scripts, binaries, containers, images, and server templates while the configuration is the declaration of what that infrastructure should look like after it is instantiated. If the infrastructure element is hardware, such as a physical layer 1 networking device, it should be ‘flashed’ \(a complete replacement of its software\) for its artifact updates. Conversely changes to virtual infrastructure should be treated the same way, with a new virtual instance being deployed based on a current artifact.
+
+The _configuration_ for such a device should be managed with an atomic application of a versioned configuration file, which replaces all of the configuration on the device at once. This configuration should only apply to day two types of changes and not the fundamental configuration used to define the provisioning of such a device itself.
 
 The choice of **change management model** is **separate** from a **deployment strategy**, such as a phoenix46 or canary47 deployment strategy. Any deployment strategy that supports immutable infrastructure \(i.e. when infrastructure such as a server needs a configuration or artifact change, a brand new instance of that infrastructure is created\) can be used.
 
@@ -36,11 +38,11 @@ A microservice has all of its dependencies deployed with it during its deploymen
 
 _**L9**_ _- If an infrastructure element is_ _**immutable**, the applications that run on that infrastructure element will run in an_ _**unprivileged mode[54]**_,[55]
 
-Applications should not require any high level of security permissions on the underlying infrastructure.
+Applications should not require any elevated level of security permissions on the underlying infrastructure as they should have no need to make modifications to it.
 
 _**L10**_ _- If an application and its dependencies are_ _**decoupled**_ _from the infrastructure element that it runs on, the_ _**application**_ _will be_ _**orchestrated[56]**._
 
-All application components that run on the infrastructure, except data[57],[58],[59],[60],[61], will be orchestrated and built from versioned artifacts and configuration during each deploy.
+All application components that run on the infrastructure, except data[57],[58],[59],[60],[61], will be orchestrated and built from versioned artifacts and configuration templates during each deploy.
 
 _**L11**_ _- If an infrastructure element provides a_ _**service62**_,[63],[64],[65]_, that service will be available via_ _**service discovery.**_
 
@@ -48,7 +50,7 @@ _**L12**_ _- If an infrastructure is_ _**immutable**, its changes will be manage
 
 _**L13**_ _- If_ _**artifacts[69]**_,[70] _are_ _**provisioned**_ _as new_ _**immutable**_ _**infrastructure**_ _**elements**, they are deployed using_ _**templates**._
 
-The pipeline for low level infrastructure artifacts should combine them into templates or images which reduces the provisioning time for everything dependent on them.
+The pipeline for low level infrastructure artifacts should combine them into templates and/or images which reduces the provisioning time for everything dependent on them.
 
 _**L14**_ _- If an immutable infrastructure has a change management pipeline, the_ _**change management pipeline**_ _applies_ _**tests[71]**_,[72],[73],[74],[75],[76] _to the codebase with increasing levels of complexity._
 
@@ -64,13 +66,13 @@ The software should resist **breaking** the **contract** formed **between** the 
 
 If you would like credit for helping with these documents \(for either this document or any of the other four documents linked above\), please add your name to the list of contributors.
 
-W Watson Vulk Coop 
+W Watson Vulk Coop
 
-Taylor Carpenter Vulk Coop 
+Taylor Carpenter Vulk Coop
 
-Denver Williams Vulk Coop 
+Denver Williams Vulk Coop
 
-Jeffrey Saelens Charter Communications 
+Jeffrey Saelens Charter Communications
 
 ## Endnotes
 
@@ -263,4 +265,3 @@ Jeffrey Saelens Charter Communications
 94. **Versioning** a media type means **making** **changes** to the media type that will likely cause **existing** **implementations** of the original media type to “**break**” or misbehave in some significant way. \[...\] Versioning should be seen as a last resort. Amundsen, Mike. Building Hypermedia APIs with HTML5 and Node \(p. 148\). Kindle Edition.
 
 95. **Practice: Decouple Pipelines** When separate teams build different components of a system, such as microservices, **joining** **pipeline** branches for these components together with the **fan-in pattern** can create a **bottleneck**. The **teams** need to spend more **effort** on **coordinating** the way they handle releases, testing, and fixing. This may be **fine** for a **small number** of teams who work closely together, but the overhead grows exponentially as the number of teams grows. Decoupling pipelines involves **structuring** the **pipelines** so that a **change** to each **component** can be **released** **independently**. The components may still have dependencies between each other, so they may need integration testing. But rather than requiring all of the components to be released to production together in a “big bang” deployment, a **change** to one **component** could **go** ahead to **production** **before** changes to the **second** **component** are released. Morris, Kief. Infrastructure as Code: Managing Servers in the Cloud \(Kindle Locations 4883-4889\). O'Reilly Media. Kindle Edition.
-
