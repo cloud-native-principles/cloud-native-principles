@@ -1,24 +1,24 @@
 # Cloud Native Networking Preamble
 
-**What is a CNF?**
+**What is a Cloud Native Network Function (CNF)?**
 
 In order to talk about CNFs, we need to define [cloud native](cloud-native-principles.md) \[1\]. Cloud native systems are, among other things, a set of loosely coupled services. These services, also known as microservices, are deployed onto immutable infrastructure while being managed by an orchestrator. This paper includes four links to other papers that go into detail about the definitions of cloud native, microservices, immutable infrastructure, and CNFs from an OSI layer perspective.
 
 **How are** [**cloud native**](cloud-native-principles.md) **systems loosely coupled?**
 
-Cloud native systems have a clear separation between their processes \[2\]. These [microservices](cloud-native-microservice-principles.md) usually use a technology like containers and aim for one process per container \[3\]. Cloud native applications also have all of their dependencies packaged with them during the build phase which is then used for deployment \[4\].
+Cloud native systems have a clear separation between their processes \[2\]. They utilize the Unix philosphy of doing one thing and doing it well. These [microservices](cloud-native-microservice-principles.md) usually use a technology like containers and aim for one process per container \[3\].
 
 **How is** [**immutable infrastructure**](cloud-native-immutable-infrastructure-principles.md) **provisioned?**
 
-[Immutable infrastructure](cloud-native-immutable-infrastructure-principles.md) \(the orchestrator and all of the software and hardware that it depends on\) is provisioned using **baked** and **versioned** **templates** \[5\] \(e.g. server images produced from packer \[10\]\) or a combination of templates and **bootstrapping** \[6\] ****\(some repeatable and versioned process that is applied to the template e.g. Kubeadm\). The underlying infrastructure is not changed after it is made ready for use. New changes to the infrastructure are rolled out as new instances of infrastructure.
+[Immutable infrastructure](cloud-native-immutable-infrastructure-principles.md) \(the orchestrator and all of the software and hardware that it depends on\) is provisioned using **baked** and **versioned** **templates** \[5\] \(e.g. server images produced from packer \[10\]\) or a combination of templates and **bootstrapping** \[6\] ****\(some repeatable and versioned process that is applied to the template e.g. Kubeadm\). The underlying infrastructure is not changed after it is made ready for use. New changes to the infrastructure are rolled out as new instances of infrastructure. 
 
 **How are cloud native systems deployed?**
 
-Cloud native applications are deployed onto immutable infrastructure \(generic host servers that support orchestration \[7\]\). Cloud native applications are not changed after deployment. New features for an application are rolled out as new artifacts and configuration \(e.g. containers\)
+Cloud native applications are deployed onto immutable infrastructure \(generic host servers that support orchestration \[7\]\). Cloud native applications also have all of their dependencies packaged with them during the build phase which is then used for deployment \[4\]. Cloud native applications are not changed after deployment. New features for an application are rolled out as new artifacts and configuration \(e.g. containers\)
 
 **How are cloud native systems configured?**
 
-Cloud native systems are configured declaratively \[8\]. This means that the system configuration declares “what” a loosely coupled system should look like, not ”how” the system should be created. The “how” of the application is determined by the tooling \(e.g. the orchestrator, operators, and CRDs\).
+Cloud native systems are configured declaratively \[8\]. This means that the system configuration declares “what” a loosely coupled system should look like, not ”how” the system should be created, updated, or deleted. The “how” of the application is determined by the tooling \(e.g. the orchestrator, operators, and CRDs\).
 
 **So what is a CNF, actually?**
 
@@ -39,6 +39,8 @@ Taylor Carpenter Vulk Coop
 Denver Williams Vulk Coop
 
 Jeffrey Saelens Charter Communications
+
+Bill Mulligan Loodse
 
 ## Endnotes
 
