@@ -1,6 +1,6 @@
 # Cloud Native Declarative OSI Principles
 
-The best practices of cloud native infrastructure writ large should be applied to networking infrastructure in the small. When describing network infrastructure in a cloud native manner, the specific challenges for provisioning each OSI \[1\],\[2\],\[3\],\[4\],\[5\],\[6\] layer need to be addressed in order to minimize the usual toil associated with provisioning, deploying functionality into, and managing complex networks. **Cloud native networking** addresses **provisioning** the **fabric** at layers 1 \(physical layer\) \[7\] and some of layer 2 \(data-link layer: physical & virtual layer 2 switches\) \[8\],\[9\], and providing **cloud native network functions** that are the orchestrated implementation of layers 2 \(data-link layer: data units \(frames\) organization, error detection, and flow control\), 3 \[10\] \(network layer \[11\], including data planes \[12\],\[13\] and control planes \[14\]\), 4 \(transport layer\) \[15\],\[16\], and the applications layer\(s\) \[17\],\[18\] 5 \(session layer\) \[19\], 6 \(presentation layer\) \[20\], and 7 \(application layer\) \[21\].
+The best practices of cloud native infrastructure writ large should be applied to networking infrastructure in the small. When describing network infrastructure in a cloud native manner, the specific challenges for provisioning each OSI \[1\],\[2\],\[3\],\[4\],\[5\],\[6\] layer need to be addressed in order to minimize the usual toil associated with provisioning, deploying functionality into, and managing complex networks. **Cloud native networking** addresses **provisioning** the **fabric** at layers 1 \(physical layer\) \[7\] and some of layer 2 \(data-link layer: physical & virtual layer 2 switches\) \[8\],\[9\], and providing **cloud native network functions (CNFs)** that are the orchestrated implementation of layers 2 \(data-link layer: data units \(frames\) organization, error detection, and flow control\), 3 \[10\] \(network layer \[11\], including data planes \[12\],\[13\] and control planes \[14\]\), 4 \(transport layer\) \[15\],\[16\], and the applications layer\(s\) \[17\],\[18\] 5 \(session layer\) \[19\], 6 \(presentation layer\) \[20\], and 7 \(application layer\) \[21\].
 
 _**L1**_ _- If a pipeline provisions network infrastructure_ \[22\]_, it will be_ _**provisioned**_ _and_ _**managed**_ _using_ _**declarative configuration**_ \[23\],\[24\],\[25\],\[26\]_._
 
@@ -20,7 +20,7 @@ Some CNFs may need to declare the mechanisms \(Linux interface, memif, etc\) tha
 
 _**L5**_ _- Regardless of whether a CNF is_ _**location dependent, affinity aware, or location agnostic,**_ _it should be_ _**deployed**_ _using either_ _the_ _**phoenix**_ \[41\]_**, or canary**_ \[42\] _deployment patterns._
 
-Some layer 1 and layer 2 cloud native network functions may need location specific information in order to be provisioned \(i.e. they can’t be configured to use service discovery\). When this is the case, the design of that cloud native network function should support the phoenix or canary deployment patterns in order to do a phased rollout of the equipment with the new changes. The blue-green43 deployment pattern should not be used as it implies non-immutability.
+Some layer 1 and layer 2 cloud native network functions may need location specific information in order to be provisioned \(i.e. they can’t be configured to use service discovery\). When this is the case, the design of that cloud native network function should support the phoenix or canary deployment patterns in order to do a phased rollout of the equipment with the new changes. The blue-green \[43\] deployment pattern should not be used as it implies non-immutability.
 
 _**L6**_ _- If a CNF has an API defined, the_ _**API**_ _will be defined using the_ _**most**_ _declarative part of the_ _**declarative spectrum**_ \[44\] _as is possible_
 
@@ -32,7 +32,7 @@ Virtualized cloud native networking infrastructure components that are part of t
 
 _**L8**_ _- If an infrastructure element that is part of a CNF is_ _**virtual layer 2 or higher**, it will be_ _**immutable and orchestrated.**_
 
-Virtual layer 2 and higher network functions, such as layer 2 MPLS VPNs, should be provisioned immutably. Configuration for said network services should be captured in a template, stored with an associated version and 'pushed' via the higher level orchestration construct in an atomic fashion.
+Virtual layer 2 and higher network functions, such as layer 2 MPLS VPNs, should be provisioned immutably. Configuration for said network services should be captured in a template, stored with an associated version, and 'pushed' via the higher level orchestration construct in an atomic fashion.
 
 _**L8**_ _- If a CNF is_ _**virtual layer 2 or higher**, it will expose itself using_ _**service discovery.**_
 
@@ -44,7 +44,7 @@ _**L10**_ _- If an infrastructure element that is part of a CNF is_ _**virtual l
 
 Virtual layer 2 \(e.g. layer 2 MPLS VPNs\), layer 3 \(e.g. software data planes and control planes\) and above should be deployed using coarse grained packaging \(such as containers\), orchestrated, and deployed onto a generic host \[45\] infrastructure element.
 
-_**L11**_ _- If an_ _**application developer**_ _consumes a_ _**cloud native networking function**, it so be_ _**consumed**_ _using a declarative API._
+_**L11**_ _- If an_ _**application developer**_ _consumes a_ _**cloud native networking function**, it should be_ _**consumed**_ _using a declarative API._
 
 _**L12**_ _- If an_ _**operator**_ _combines cloud native network functions into a_ _**service chain**, they will be_ _**combined**_ _using a declarative API and will be_ _**exposed**_ _as a declarative API._
 
@@ -61,6 +61,8 @@ Taylor Carpenter Vulk Coop
 Denver Williams Vulk Coop
 
 Jeffrey Saelens Charter Communications
+
+Bill Mulligan Loodse
 
 ## Endnotes
 
