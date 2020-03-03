@@ -1,6 +1,6 @@
 # Cloud Native Networking Preamble
 
-**What is a Cloud Native Network Function (CNF)?**
+**What is a Cloud Native Network Function \(CNF\)?**
 
 In order to talk about CNFs, we need to define [cloud native](cloud-native-principles.md) \[1\]. Cloud native systems are, among other things, a set of loosely coupled services. These services, also known as microservices, are deployed onto immutable infrastructure while being managed by an orchestrator. This paper includes four links to other papers that go into detail about the definitions of cloud native, microservices, immutable infrastructure, and CNFs from an OSI layer perspective.
 
@@ -10,7 +10,7 @@ Cloud native systems have a clear separation between their processes \[2\]. They
 
 **How is** [**immutable infrastructure**](cloud-native-immutable-infrastructure-principles.md) **provisioned?**
 
-[Immutable infrastructure](cloud-native-immutable-infrastructure-principles.md) \(the orchestrator and all of the software and hardware that it depends on\) is provisioned using **baked** and **versioned** **templates** \[5\] \(e.g. server images produced from packer \[10\]\) or a combination of templates and **bootstrapping** \[6\] ****\(some repeatable and versioned process that is applied to the template e.g. Kubeadm\). The underlying infrastructure is not changed after it is made ready for use. New changes to the infrastructure are rolled out as new instances of infrastructure. 
+[Immutable infrastructure](cloud-native-immutable-infrastructure-principles.md) \(the orchestrator and all of the software and hardware that it depends on\) is provisioned using **baked** and **versioned** **templates** \[5\] \(e.g. server images produced from packer \[10\]\) or a combination of templates and **bootstrapping** \[6\] \(some repeatable and versioned process that is applied to the template e.g. Kubeadm\). The underlying infrastructure is not changed after it is made ready for use. New changes to the infrastructure are rolled out as new instances of infrastructure.
 
 **How are cloud native systems deployed?**
 
@@ -45,29 +45,29 @@ Bill Mulligan Loodse
 ## Endnotes
 
 > 1. "CNCF Cloud Native Definition v1.0", TOC: 2018-06-11, [https://github.com/cncf/toc/blob/master/DEFINITION.md](https://github.com/cncf/toc/blob/master/DEFINITION.md), **Cloud** **native** technologies empower organizations to build and run scalable applications in modern, **dynamic** environments such as public, private, and hybrid clouds. **Containers, service meshes**, **microservices**, **immutable infrastructure,** and **declarative APIs** exemplify this approach. These techniques enable loosely coupled systems that are **resilient**, **manageable**, and **observable**. Combined with robust **automation**, they allow engineers to make high-impact changes frequently and predictably with minimal toil.
-> 2. Stine, Matt. Migrating to Cloud-Native Application Architecture, O'reilly, 2015, pp. 10–11 
+> 2. Stine, Matt. Migrating to Cloud-Native Application Architecture, O'reilly, 2015, pp. 10–11
 >
->    “**Codebase** \[...\] Each deployable app is **tracked** as one codebase tracked in **revision** control. It may have many deployed instances across multiple environments. 
+>    “**Codebase** \[...\] Each deployable app is **tracked** as one codebase tracked in **revision** control. It may have many deployed instances across multiple environments.
 >
->    **Dependencies** \[...\] An app explicitly declares and **isolates dependencie**s via appropriate tooling \(e.g., Maven, Bundler, NPM\) rather than depending on implicitly realized dependencies in its deployment environment. 
+>    **Dependencies** \[...\] An app explicitly declares and **isolates dependencie**s via appropriate tooling \(e.g., Maven, Bundler, NPM\) rather than depending on implicitly realized dependencies in its deployment environment.
 >
->    **Config** \[...\] Configuration, or **anything** that is likely to **differ** between deployment **environments** \(e.g., development, staging, production\) is **injected** via operating system-level **environment** **variables**. 
+>    **Config** \[...\] Configuration, or **anything** that is likely to **differ** between deployment **environments** \(e.g., development, staging, production\) is **injected** via operating system-level **environment** **variables**.
 >
->    **Backing services** \[...\] Backing services, such as **databases** or message brokers, are treated as **attached resources** and consumed **identically** across all environments. 
+>    **Backing services** \[...\] Backing services, such as **databases** or message brokers, are treated as **attached resources** and consumed **identically** across all environments.
 >
->    **Build, release, run** \[...\] The **stages** of building a **deployable** app artifact, **combining** that **artifact** with **configuration**, and **starting** one or more **processes** from that artifact/configuration combination, are strictly **separated**. 
+>    **Build, release, run** \[...\] The **stages** of building a **deployable** app artifact, **combining** that **artifact** with **configuration**, and **starting** one or more **processes** from that artifact/configuration combination, are strictly **separated**.
 >
->    **Processes** \[...\] The app executes as one or more **stateless** **processes** \(e.g., master/workers\) that **share** **nothing**. Any necessary state is externalized to **backing** **services** \(cache, object store, etc.\). 
+>    **Processes** \[...\] The app executes as one or more **stateless** **processes** \(e.g., master/workers\) that **share** **nothing**. Any necessary state is externalized to **backing** **services** \(cache, object store, etc.\).
 >
 >    **Port binding** \[...\] The app is self-contained and **exports** any/all **services** via **port binding** \(including HTTP\).
 >
->    **Concurrency** \[...\] Concurrency is usually accomplished by **scaling out app processes horizontally** \(though processes may also multiplex work via internally managed threads if desired\). 
+>    **Concurrency** \[...\] Concurrency is usually accomplished by **scaling out app processes horizontally** \(though processes may also multiplex work via internally managed threads if desired\).
 >
->    **Disposability** \[...\] Robustness is maximized via **processes** that **start up** quickly and **shut down gracefully**. These aspects allow for **rapid elastic scaling**, deployment of changes, and **recovery** from crashes. 
+>    **Disposability** \[...\] Robustness is maximized via **processes** that **start up** quickly and **shut down gracefully**. These aspects allow for **rapid elastic scaling**, deployment of changes, and **recovery** from crashes.
 >
->    **Dev/prod parity** \[...\] Continuous delivery and deployment are enabled by **keeping** **development**, **staging**, and **production** environments as **similar** as possible. 
+>    **Dev/prod parity** \[...\] Continuous delivery and deployment are enabled by **keeping** **development**, **staging**, and **production** environments as **similar** as possible.
 >
->    **Logs** Rather than managing logfiles, **treat logs as event streams**, allowing the execution environment to **collect**, **aggregate**, **index**, and **analyze** the **events** via **centralized** services. 
+>    **Logs** Rather than managing logfiles, **treat logs as event streams**, allowing the execution environment to **collect**, **aggregate**, **index**, and **analyze** the **events** via **centralized** services.
 >
 >    **Admin processes** \[...\] Administrative or **management tasks**, such as database migrations, are executed as **one-off processes** in environments identical to the app’s long-running processes.”
 >
