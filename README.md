@@ -6,7 +6,7 @@ In order to talk about CNFs, we need to define [cloud native](cloud-native-princ
 
 **How are** [**cloud native**](cloud-native-principles.md) **systems loosely coupled?**
 
-Cloud native systems have a clear separation between their processes \[2\]. They utilize the Unix philosphy of doing one thing and doing it well. These microservices usually use a technology like containers and aim for one process per container \[3\]. As such, cloud native applications should have all of their dependencies packaged with them during the build phase and leveraged during deployment \[4\].
+Cloud native systems have a clear separation between their processes \[2\]. They utilize the Unix philosophy of doing one thing and doing it well. These microservices usually use a technology like containers and aim for one process per container \[3\]. As such, cloud native applications should have all of their dependencies packaged with them during the build phase and leveraged during deployment \[4\].
 
 **How is** [**immutable infrastructure**](cloud-native-immutable-infrastructure-principles.md) **provisioned?**
 
