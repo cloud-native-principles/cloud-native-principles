@@ -2,53 +2,53 @@
 
 The best practices of cloud native infrastructure writ large should be applied to networking infrastructure in the small. When describing network infrastructure in a cloud native manner, the specific challenges for provisioning each OSI \[1\],\[2\],\[3\],\[4\],\[5\],\[6\] layer need to be addressed in order to minimize the usual toil associated with provisioning, deploying functionality into, and managing complex networks. **Cloud native networking** addresses **provisioning** the **fabric** at layers 1 \(physical layer\) \[7\] and some of layer 2 \(data-link layer: physical & virtual layer 2 switches\) \[8\],\[9\], and providing **cloud native network functions (CNFs)** that are the orchestrated implementation of layers 2 \(data-link layer: data units \(frames\) organization, error detection, and flow control\), 3 \[10\] \(network layer \[11\], including data planes \[12\],\[13\] and control planes \[14\]\), 4 \(transport layer\) \[15\],\[16\], and the applications layer\(s\) \[17\],\[18\] 5 \(session layer\) \[19\], 6 \(presentation layer\) \[20\], and 7 \(application layer\) \[21\].
 
-_**L1**_ _- If a pipeline provisions network infrastructure_ \[22\]_, it will be_ _**provisioned**_ _and_ _**managed**_ _using_ _**declarative configuration**_ \[23\],\[24\],\[25\],\[26\]_._
+_**P1**_ _- If a pipeline provisions network infrastructure_ \[22\]_, it will be_ _**provisioned**_ _and_ _**managed**_ _using_ _**declarative configuration**_ \[23\],\[24\],\[25\],\[26\]_._
 
 Network infrastructure can be separated into the underlying network fabric \(underlay\) and the application or workload network \(overlay\). The establishment of an underlay network consists of the provisioning and configuration that resides at the lower OSI layers, such as the implementation of the physical or virtual OSI layer 1 \(physical media, interconnects \[27\] such as buses \[28\] and layer 1 switches \[29\],\[30\],\[31\],\[32\], network adapters \[33\],\[34\], and other mechanisms \[35\],\[36\]\) or physical or virtual layer 2 \[37\] \(layer 2 switches, Bridges \[38\] etc\). The application \(overlay\) network functionality is deployed onto the underlying infrastructure network.
 
-_**L2**_ _- If a pipeline provisions_ _**physical network layer 1 or layer 2 infrastructure**, it will be provisioned_ _**immutably**._
+_**P2**_ _- If a pipeline provisions_ _**physical network layer 1 or layer 2 infrastructure**, it will be provisioned_ _**immutably**._
 
 Configuration that relates layer 1 and layer 2 tend to be operating system boot options, machine specific bios settings \(e.g. SR-IOV bios settings\), or a configuration file for traditional layer 1 devices. These settings can be for physical hardware or virtual hardware. In order to provision physical hardware immutably it must be taken offline, reset to a known state \(e.g. networking device should get a ‘flashed’ or 'pushed', complete replacement for its artifact updates\), have any of its patches applied sequentially. At this point new configuration \(that is stored in a templated format and is maintained in a version control system\) can be applied with the network infrastructure element then being ready for use. Both artifacts and configuration should be maintained independently of the physical or virtual device.
 
-_**L3**_ _- If a_ _**cloud native network**_ _is provisioned, it will encompass the provisioning of an_ _**infrastructure \(underlay\) network**_ \[39\] _and an_ _**application/workload \(overlay\) network**_ \[40\].
+_**P3**_ _- If a_ _**cloud native network**_ _is provisioned, it will encompass the provisioning of an_ _**infrastructure \(underlay\) network**_ \[39\] _and an_ _**application/workload \(overlay\) network**_ \[40\].
 
 Some decisions, such as how to manage \(or avoid\) the ethernet churn of hundreds of thousands of endpoints, must be made with respect to the configuration of underlying networking hardware and topology of cloud native networks. This infrastructure \(underlay\) network serves as the foundation which supports the higher level \(overlay\) networks that will be provided to applications. The components of the underlying infrastructure network \(whether it be physical or virtual layer 1 and layer 2\) operate at a different rate of change to, have different concerns from, and must not interfere \(e.g. degrade performance or quality of service\) with, the use cases of the application/workload network. Another way of stating this, is that underlay network must be provisioned and managed in a way that alterations to its deployment do not conflict with overlay networks being consumed by applications.
 
-_**L4**_ _- If a CNF has specified a set of_ _**preferred local mechanisms**_ \[36\],\[46\], _the infrastructure will provide those mechanisms to the CNF in the order of preference specified should the infrastructure support the requested mechanism._
+_**P4**_ _- If a CNF has specified a set of_ _**preferred local mechanisms**_ \[36\],\[46\], _the infrastructure will provide those mechanisms to the CNF in the order of preference specified should the infrastructure support the requested mechanism._
 
 Some CNFs may need to declare the mechanisms \(Linux interface, memif, etc\) that they support so that the orchestrator can decide the most efficient way to implement the CNF. This may include the selection of a mechanism based on affinity \(e.g. the availability of an interface type between two endpoints that reside in the same host\). The CNF's preference for a specific type of local mechanism does not supersede the principle of immutability. Mechanisms of any type should be considered as any other resource type. If said resource is not available, then the CNF should not be scheduled.
 
-_**L5**_ _- Regardless of whether a CNF is_ _**location dependent, affinity aware, or location agnostic,**_ _it should be_ _**deployed**_ _using either_ _the_ _**phoenix**_ \[41\]_**, or canary**_ \[42\] _deployment patterns._
+_**P5**_ _- Regardless of whether a CNF is_ _**location dependent, affinity aware, or location agnostic,**_ _it should be_ _**deployed**_ _using either_ _the_ _**phoenix**_ \[41\]_**, or canary**_ \[42\] _deployment patterns._
 
 Some layer 1 and layer 2 cloud native network functions may need location specific information in order to be provisioned \(i.e. they can’t be configured to use service discovery\). When this is the case, the design of that cloud native network function should support the phoenix or canary deployment patterns in order to do a phased rollout of the equipment with the new changes. The blue-green \[43\] deployment pattern should not be used as it implies non-immutability.
 
-_**L6**_ _- If a CNF has an API defined, the_ _**API**_ _will be defined using the_ _**most**_ _declarative part of the_ _**declarative spectrum**_ \[44\] _as is possible_
+_**P6**_ _- If a CNF has an API defined, the_ _**API**_ _will be defined using the_ _**most**_ _declarative part of the_ _**declarative spectrum**_ \[44\] _as is possible_
 
 When using declarative configuration, the overall outcome is defined. There is a sense in which location is imperative \(designating how instead of what\) because it encompasses ‘how’ to get to a destination \(e.g. hardcoded IPs or subnets\). To a lesser degree, affinity \(the property a component that must be ‘close’ to another component, such as a special type of network card\) is imperative as well. A declarative spectrum for configuration emerges where there is no location specific information on one side \(the most declarative\), and hard coded subnets on the other side \(the least declarative\) of the spectrum. This is not to say that technologies such as affinity/anti-infinity cannot be declared as a desired end-state, just that the CNFs API should not be specifying to the underlaying infrastructure how to achieve these ends. When designing cloud native network functions, the configuration should be as declarative as possible.
 
-_**L7**_ _- If an infrastructure element that is part of a CNF is_ _**virtual layer 1**, it will be immutable_
+_**P7**_ _- If an infrastructure element that is part of a CNF is_ _**virtual layer 1**, it will be immutable_
 
 Virtualized cloud native networking infrastructure components that are part of the physical layer 1, such as virtual network cards, should have configuration that is immutable.
 
-_**L8**_ _- If an infrastructure element that is part of a CNF is_ _**virtual layer 2 or higher**, it will be_ _**immutable and orchestrated.**_
+_**P8**_ _- If an infrastructure element that is part of a CNF is_ _**virtual layer 2 or higher**, it will be_ _**immutable and orchestrated.**_
 
 Virtual layer 2 and higher network functions, such as layer 2 MPLS VPNs, should be provisioned immutably. Configuration for said network services should be captured in a template, stored with an associated version, and 'pushed' via the higher level orchestration construct in an atomic fashion.
 
-_**L8**_ _- If a CNF is_ _**virtual layer 2 or higher**, it will expose itself using_ _**service discovery.**_
+_**P9**_ _- If a CNF is_ _**virtual layer 2 or higher**, it will expose itself using_ _**service discovery.**_
 
-_**L9**_ _- If a CNF is_ _**virtual layer 1**, its_ _**provisioning**_ _will use a_ _**server template**_
+_**P10**_ _- If a CNF is_ _**virtual layer 1**, its_ _**provisioning**_ _will use a_ _**server template**_
 
 The infrastructure elements of the lowest level virtual underlay network \(e.g. networking components of a hypervisor that map to the physical components of its node\), should have its configuration baked into an artifact that is versioned and managed with an artifact management system. Whatever configuration that is not on the image should be applied after the initial artifact is deployed \(Day 2\), via an orchestrated and versioned process, before the infrastructure element is considered ready for use.
 
-_**L10**_ _- If an infrastructure element that is part of a CNF is_ _**virtual layer 2, 3, or higher**, its_ _**deployment**_ _will be within a_ _**microservice**_ _and will be_ _**orchestrated.**_
+_**P11**_ _- If an infrastructure element that is part of a CNF is_ _**virtual layer 2, 3, or higher**, its_ _**deployment**_ _will be within a_ _**microservice**_ _and will be_ _**orchestrated.**_
 
 Virtual layer 2 \(e.g. layer 2 MPLS VPNs\), layer 3 \(e.g. software data planes and control planes\) and above should be deployed using coarse grained packaging \(such as containers\), orchestrated, and deployed onto a generic host \[45\] infrastructure element.
 
-_**L11**_ _- If an_ _**application developer**_ _consumes a_ _**cloud native networking function**, it should be_ _**consumed**_ _using a declarative API._
+_**P12**_ _- If an_ _**application developer**_ _consumes a_ _**cloud native networking function**, it should be_ _**consumed**_ _using a declarative API._
 
-_**L12**_ _- If an_ _**operator**_ _combines cloud native network functions into a_ _**service chain**, they will be_ _**combined**_ _using a declarative API and will be_ _**exposed**_ _as a declarative API._
+_**P13**_ _- If an_ _**operator**_ _combines cloud native network functions into a_ _**service chain**, they will be_ _**combined**_ _using a declarative API and will be_ _**exposed**_ _as a declarative API._
 
-_**L13**_ _- If a_ _**cloud native network function developer**_ _creates networking software, it will_ _**expose**_ _a declarative API._
+_**P14**_ _- If a_ _**cloud native network function developer**_ _creates networking software, it will_ _**expose**_ _a declarative API._
 
 **LIST OF CONTRIBUTORS**
 
