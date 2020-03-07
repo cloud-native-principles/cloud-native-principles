@@ -2,41 +2,41 @@
 
 The concepts of immutable infrastructure, declarative apis, and microservices each deserve individual treatment. The following statements are high level generalizations that can help lead towards an understanding of these three concepts before diving deeply into each of them individually.
 
-_**L1**_ _- If a project is_ _**cloud native**_ \[1\],\[2\]_, it uses_ _**immutable infrastructure**_ \[3\], _**declarative apis**, and_ _**microservices**._
+_**P1**_ _- If a project is_ _**cloud native**_ \[1\],\[2\]_, it uses_ _**immutable infrastructure**_ \[3\], _**declarative apis**, and_ _**microservices**._
 
-_**L2**_ _- If infrastructure is_ _**immutable**, it is easily_ _**reproduced**_ \[4\],\[5\]_,_ _**consistent**_ \[6\]_,_ _**disposable**_ \[7\],\[8\]_, will have a_ _**repeatable**_ \[9\] _**deployment process**, and will not have configuration or artifacts that are modifiable in place._
+_**P2**_ _- If infrastructure is_ _**immutable**, it is easily_ _**reproduced**_ \[4\],\[5\]_,_ _**consistent**_ \[6\]_,_ _**disposable**_ \[7\],\[8\]_, will have a_ _**repeatable**_ \[9\] _**deployment process**, and will not have configuration or artifacts that are modifiable in place._
 
 The process that implements immutable infrastructure needs to be reproducible \(without any needing to ‘think’ each time provisioning occurs\) and repeatable \(automated\). This process also needs to be consistent \(infrastructure elements should be identical\) and disposable \(designed to be easily created, destroyed, replaced, resized, etc\). A project’s immutable infrastructure, which can include everything from the physical hardware at the lowests levels up to the platforms that the application is installed on, has its configuration protected from change \(not modifiable\) after it is deployed into an environment. This configuration is stored in such a way that it can be used to recreate the infrastructure as needed. Furthermore, the process should be idempotent allowing a state to be applied multiple times and the same desired state still being achieved.
 
-_**L3**_ _- If a project has an efficient and repeatable deployment process, its process is_ _**versioned**_ \[10\], _**automated**_ \[11\], _and has_ _**low overhead/coarse grained packaging**_ \[12\],\[13\],\[14\],\[15\]
+_**P3**_ _- If a project has an efficient and repeatable deployment process, its process is_ _**versioned**_ \[10\], _**automated**_ \[11\], _and has_ _**low overhead/coarse grained packaging**_ \[12\],\[13\],\[14\],\[15\]
 
 The core of cloud native development rests in coarse-grained packaging such as that found in container technologies such as Docker. Any light weight / low overhead technology that satisfies the requirements for low overhead and coarse grained packaging \(packaging all of the dependencies together with the application\) can satisfy the deployment requirements for cloud native applications. Normal CI/CD best practices apply for the deployment practice itself.
 
-_**L4**_ _- If a project’s deployment is_ _**automated**,_ _**configuration**_ \[16\], _**environment**_ \[17\], _and_ _**artifacts**_ \[18\] _are completely managed by a_ _**pipeline**.\_
+_**P4**_ _- If a project’s deployment is_ _**automated**,_ _**configuration**_ \[16\], _**environment**_ \[17\], _and_ _**artifacts**_ \[18\] _are completely managed by a_ _**pipeline**.\_
 
-_**L5**_ _- If a projects deployment is managed completely by a_ _**pipeline**, the project’s_ _**environment**_ _is_ _**protected**_ \[19\]
+_**P5**_ _- If a projects deployment is managed completely by a_ _**pipeline**, the project’s_ _**environment**_ _is_ _**protected**_ \[19\]
 
 Production environments should be only directly modified by the automated pipeline process and therefore not _directly_ modifiable by anyone. This protects against snowflake configuration.
 
-_**L6**_ _- If a project’s environment is protected, it provides_ _**observability**_ \[21\] _of the project’s internal components._
+_**P6**_ _- If a project’s environment is protected, it provides_ _**observability**_ \[21\] _of the project’s internal components._
 
 In order to maintain, debug, and have insight into a protected environment, its infrastructure elements must have the property of being observable. This means these elements must externalize their internal states in some way that lends itself to metrics, tracing, and logging.
 
-_**L7**_ _- If a project's uses_ _**declarative APIs**_ \[22\], _its_ _**configuration**_ _is_ _**declarative**_ \[23\],\[24\]
+_**P7**_ _- If a project's uses_ _**declarative APIs**_ \[22\], _its_ _**configuration**_ _is_ _**declarative**_ \[23\],\[24\]
 
-_**L8**_ _- If a project’s configuration is_ _**declarative**_ \[25\], _it designates_ _**what**_ _to do,_ _**not how**_ _to do it._
+_**P8**_ _- If a project’s configuration is_ _**declarative**_ \[25\], _it designates_ _**what**_ _to do,_ _**not how**_ _to do it._
 
 Declarative APIs for an immutable infrastructure are anything that configures the infrastructure element. This declaration can come in the form of a YAML file or a script, as long as the configuration designates the desired outcome, not how to achieve said outcome.
 
-_**L9**_ _- If a project exists as a_ _**microservice**_ \[26\],\[28\],\[29\]_, it is_ _**not monolithic**, it is_ _**resilient**, it follows_ _**12-factor principles**_ \[30\], _and is_ _**discoverable**_ \[31\].
+_**P9**_ _- If a project exists as a_ _**microservice**_ \[26\],\[28\],\[29\]_, it is_ _**not monolithic**, it is_ _**resilient**, it follows_ _**12-factor principles**_ \[30\], _and is_ _**discoverable**_ \[31\].
 
 When a service is monolithic, multiple business capabilities are tightly coupled, therefore requiring coordination with multiple groups within the organization that are developing the service. A microservice separates concerns based on business capability \(features or groups of features\). This allows for a more rapid deployment of services with a faster feedback loop.
 
-_**L10**_ _- If a microservice is_ _**resilient**, it is_ _**self-healing**_ _and_ _**distributed**_ \[32\].
+_**P10**_ _- If a microservice is_ _**resilient**, it is_ _**self-healing**_ _and_ _**distributed**_ \[32\].
 
 A microservice is also resilient, in that it is accompanied by some kind of strategy for healing itself. This includes strategies for restarting after failures and distributive scaling in response to load. A microservice scales out to handle load \(more processes are spawned on more machines\) instead of scaling up \(increasing the capacity of the individual machines\)
 
-_**L11**_ _- If a microservice is_ _**self-healing**_ \[33\], _it is compatible with_ _**declarative configuration**_ _and orchestration_ \[34\]_._
+_**P11**_ _- If a microservice is_ _**self-healing**_ \[33\], _it is compatible with_ _**declarative configuration**_ _and orchestration_ \[34\]_._
 
 Once a microservice is coupled with a declarative strategy \(a strategy that outlines what the system should look like\), it can then be handed over to an orchestrator in order to implement that strategy.
 
