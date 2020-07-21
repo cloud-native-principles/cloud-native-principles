@@ -14,7 +14,7 @@ _**P4**_ _- If a cloud native infrastructure element is_ _**provisioned**, it wi
 
 Once immutable infrastructure \(the orchestrator and all of the software and hardware that it depends on\) is provisioned, the infrastructure is not changed after it is made ready for use. New changes to the infrastructure are rolled out as new instances of infrastructure.
 
-_**P5**_ _- If an infrastructure element’s provisioning is_ _**immutable**, its_ _**day zero configuration**_ \[23\],\[24\],\[25\] _will_ _**not**_ _be_ _**changed.**_
+_**P5**_ _- If an infrastructure element’s provisioning is_ _**immutable**, its_ _**base configuration**_ \[23\],\[24\],\[25\] _will_ _**not**_ _be_ _**changed.**_
 
 In the immutable change management model \[38\], immutable infrastructure elements are built from scratch \(or from artifacts and configuration with a known state\) as a new instance of the element. The artifacts of an immutable infrastructure are composed of scripts, binaries, containers, images, and server templates while the configuration is the declaration of what that infrastructure should look like after it is instantiated. If the infrastructure element is hardware, such as a physical layer 1 networking device, it should be ‘flashed’ \(a complete replacement of its software\) for its artifact updates. Conversely changes to virtual infrastructure should be treated the same way, with a new virtual instance being deployed based on a current artifact.
 
@@ -24,7 +24,7 @@ The choice of **change management model** is **separate** from a **deployment st
 
 _**P6**_ _- If an infrastructure element is_ _**immutable**_ \[26\],\[27\],\[28\],\[29\],\[30\],\[31\]_, its_ _**base**_ _**configuration**_ _is stored as a_ _**template**_ \[32\],\[33\],\[34\],\[35\],\[36\],\[37\]_._
 
-An infrastructure **image** resides at the lowest level and usually includes an operating system, but may also include an **orchestrator** for the higher level applications or any other dependencies that have a low rate of change but are needed for applications. This **image** is managed using a **template** **system** with **versioning** \(e.g. a versioned image of an operating system\) and minimizes the MTTR44 \(mean time to recovery\) and deployment time of the infrastructure.
+An infrastructure **image** resides at the lowest level and usually includes an operating system, but may also include an **orchestrator** for the higher level applications or any other dependencies that have a low rate of change but are needed for applications. This **image** is managed using a **template** **system** with **versioning** \(e.g. a versioned image of an operating system\) and minimizes the MTTR\[44] \(mean time to recovery\) and deployment time of the infrastructure.
 
 _**P7**_ _- If there is_ _**configuration**_ _outside of an infrastructure element’s template, it is_ _**versioned**_ _and stored in_ _**source control**_ \[41\],\[43\]_._
 
