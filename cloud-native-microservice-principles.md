@@ -52,7 +52,7 @@ _**P12**_ _- If a pipeline_ _**provisions network infrastructure**, it will be_ 
 
 _**P13**_ _- If a_ _**provider**_ _for network infrastructure delivers_ _**software**_ _or_ _**hardware**, it will be delivered to the_ _**consumer**_ _as a_ _**library dependency**_ _or_ _**service instance**_ _\(whether self service or hosted\)._
 
-_**P14**_ _- If the provider of networking software delivers_ _**cloud native service chains**, the service chains will be_ _**composed**_ _of_ _**immutable microservices**_ _with_ _**declarative APIs41**_, \[42\],\[43\],\[44\]_._
+_**P14**_ _- If the provider of networking software delivers_ _**cloud native service chains**, the service chains will be_ _**composed**_ _of_ _**immutable microservices**_ _with_ _**declarative APIs\[41]**_, \[42\],\[43\],\[44\]_._
 
 Cloud native network functions can be composed with one another. During this composition their configuration is not modified after deployment \(immutable\), designates the outcome of the network that is wanted \(declarative\), and not steps of how to get to that outcome \(imperative\).
 
