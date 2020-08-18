@@ -40,6 +40,10 @@ _**P11**_ _- If a microservice is_ _**self-healing**_ \[33\], _it is compatible 
 
 Once a microservice is coupled with a declarative strategy \(a strategy that outlines what the system should look like\), it can then be handed over to an orchestrator in order to implement that strategy.
 
+**LICENSE**
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
 **LIST OF CONTRIBUTORS**
 
 If you would like credit for helping with these documents \(for either this document or any of the other four documents linked above\), please add your name to the list of contributors.
