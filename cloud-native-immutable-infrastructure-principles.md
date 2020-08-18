@@ -62,6 +62,10 @@ All software components delivered by a provider need to have the ability to be i
 
 The software should resist **breaking** the **contract** formed **between** the **provider** of that software and the **consumer** of that software. This means paying attention to forward and backward compatibility \[87\],\[88\],\[89\],\[90\],\[91\],\[92\] with respect to interfaces between the provider and consumer. Any breaks in compatibility should force a major version \[93\],\[94\] change.
 
+**LICENSE**
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
 **LIST OF CONTRIBUTORS**
 
 If you would like credit for helping with these documents \(for either this document or any of the other four documents linked above\), please add your name to the list of contributors.
