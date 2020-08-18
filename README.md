@@ -28,6 +28,20 @@ A CNF is network functionality delivered in software via cloud native developmen
 
 Service providers currently find themselves at a unique transition point within the industry. Their push towards normalization within the world of NFV has finally begun to bear fruit, yet cloud native software approaches are already being pushed by a plethora of vendors, each with their own unique approach. Providers now find themselves in a situation where they must find ways to achieve a return on their investment into NFV while also managing the industry’s shift in paradigm with regards to software development.
 
+
+**LICENSE**
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+You are free to:
+- Share — copy and redistribute the material in any medium or format
+- Adapt — remix, transform, and build upon the material for any purpose, even commercially.
+
+Under the following terms:
+- Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+- No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+
+
 **LIST OF CONTRIBUTORS**
 
 If you would like credit for helping with these documents \(for either this document or any of the other four documents linked above\), please add your name to the list of contributors.
