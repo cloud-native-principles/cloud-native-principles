@@ -16,8 +16,9 @@ NOTE: This is a work in progress.
 - Declarative consumption model
    - includes APIs and configuration
    - applies to all layers: infra, workloads, platform, and components
-- Immutable infrastructure 
 - Designed for automation
+   - applies to testing, deployment, application and platform autoscaling, infra and network provisioning
+- Immutable infrastructure 
 
 Each of these concepts is covered in more depth in [cloud-native-principles.md](https://github.com/cloud-native-principles/cloud-native-principles/blob/master/cloud-native-principles.md).
 
