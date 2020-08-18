@@ -68,6 +68,10 @@ _**P17**_ _- If a_ _**cloud native network function developer**_ _creates networ
 
 The cloud native network functions themselves are developed in such a way as to expose a way to configure them declaratively.
 
+**LICENSE**
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
 **LIST OF CONTRIBUTORS**
 
 If you would like credit for helping with these documents \(for either this document or any of the other four documents linked above\), please add your name to the list of contributors.
