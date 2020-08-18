@@ -6,7 +6,7 @@ The [cloud native principles](https://github.com/cloud-native-principles/cloud-n
 
 NOTE: This is a work in progress.
 
-## Principles
+## Fundamental Concepts
 
 - Service discovery
 - Loosely coupled services
