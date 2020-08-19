@@ -9,7 +9,7 @@ NOTE: This is a work in progress.
 ## Fundamental Concepts
 
 - Service discovery
-- Loosely coupled services
+- Loose coupling
 - Microservices
 - Low overhead/coarse-grained packaging 
    - examples: containers, unikernel
