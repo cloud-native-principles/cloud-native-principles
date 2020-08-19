@@ -28,6 +28,24 @@ A CNF is network functionality delivered in software via cloud native developmen
 
 Service providers currently find themselves at a unique transition point within the industry. Their push towards normalization within the world of NFV has finally begun to bear fruit, yet cloud native software approaches are already being pushed by a plethora of vendors, each with their own unique approach. Providers now find themselves in a situation where they must find ways to achieve a return on their investment into NFV while also managing the industry’s shift in paradigm with regards to software development.
 
+Service Providers offer basic services to all of their customers. They are also
+in a position to deliver innovative services to their customers. These
+innovative services might include IoT, NFV, or SDN. Service Providers may have
+thousands of customers who require some level of service. Each of these
+customers may have a different set of requirements for their service.
+
+The SDN controller and other SDN related components may become a feature that
+Service Providers must deliver to their customers. This might be in the form of
+a software only product that Service Providers can bundle with their existing
+services. This might also manifest as a service that Service Providers provide
+to their customers. The SDN controller, as a feature, may become a part of the
+Service Provider’s software defined networking stack. This stack may include
+the SDN controller and a network orchestrator (e.g. Kubernetes, OpenDaylight,
+or TOSCA). This controller may be deployed as a Docker container on a Service
+Provider’s compute infrastructure and orchestrated by the orchestrator and
+managed via a declarative configuration.
+
+
 
 **LICENSE**
 
