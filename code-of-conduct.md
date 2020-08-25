@@ -35,7 +35,7 @@ when an individual is representing the project or its community.
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported by opening an issue or contacting one or more of the project
-maintainers (Jeffrey Saelens, Taylor Carpenter, Wavell Watson).
+maintainers ([Jeffrey Saelens](https://github.com/jeffsaelens), [Taylor Carpenter](https://github.com/taylor), [Wavell Watson](https://github.com/wavell)).
 
 This Code of Conduct is adapted from the Contributor Covenant
 (http://contributor-covenant.org), version 1.2.0, available at
