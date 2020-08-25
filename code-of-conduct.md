@@ -35,7 +35,7 @@ when an individual is representing the project or its community.
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported by opening an issue or contacting one or more of the project
-maintainers ([Jeffrey Saelens](https://github.com/jeffsaelens), [Taylor Carpenter](https://github.com/taylor), [Wavell Watson](https://github.com/wavell)).
+maintainers: [Jeffrey Saelens](https://github.com/jeffsaelens) ([twitter](https://twitter.com/nerdengineering)), [Taylor Carpenter](https://github.com/taylor) ([email](mailto:taylor@vulk.coop), [twitter](https://twitter.com/ixx)), [Wavell Watson](https://github.com/wavell) ([twitter](https://twitter.com/elementwatson), [linkedin](https://www.linkedin.com/in/wavell/)).
 
 This Code of Conduct is adapted from the Contributor Covenant
 (http://contributor-covenant.org), version 1.2.0, available at
