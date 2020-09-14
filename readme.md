@@ -1,4 +1,4 @@
-# README
+# README / Contributing / License
 
 To talk about cloud native applications and systems, we need to define cloud native. CNCF provides a high-level overview of what it means to be cloud native and lists some implementations and the benefits they provide in the [CNCF Cloud Native Definition v1.0](https://github.com/cncf/toc/blob/master/DEFINITION.md).
 
