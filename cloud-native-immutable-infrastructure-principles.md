@@ -3,7 +3,7 @@
 _**P1**_ _- If infrastructure is_ _**immutable**, it is easily_ _**reproduced**_ \[1\],\[2\]_,_ _**consistent**_ \[3\], _**disposable**_ \[4\],\[5\]_, will have a_ _**repeatable**_ \[6\] _**provisioning process**, and will not have configuration or artifacts that are modifiable in place._
 
 <details>
-  <summary>Click to expand!</summary>
+  <summary>Details:</summary>
   
 Many qualities characterize an immutable process. Reproducibility, consistency, disposability and repeatability are mandatory attributes in any well designed infrastructure process, including an immutable one.
 
@@ -11,43 +11,83 @@ Many qualities characterize an immutable process. Reproducibility, consistency, 
 
 _**P2**_ _- If the provisioning of cloud native infrastructure is dynamic, it will use unattended code execution_ \[7\]\[8\]\[9\] _with declarative configuration_ \[10\],\[11\],\[12\],\[13\],\[14\]_._
 
+<details>
+  <summary>Details:</summary>
+  
 The gold standard for cloud infrastructure is for it be able to be provisioned without any assistance. The tools that provision that infrastructure should accept declarative configuration as inputs.
+
+</details>
 
 _**P3**_ _- If a cloud native_ _**infrastructure element**_ \[15\],\[16\] _\(**compute, storage, or network**\) is_ _**provisioned**_ \[17\],\[18\],\[19\],\[20\],\[21\],\[22\]_, that element is_ _**ready for use**._
 
 _**P4**_ _- If a cloud native infrastructure element is_ _**provisioned**, it will be provisioned_ _**immutably**._
 
+<details>
+  <summary>Details:</summary>
+  
 Once immutable infrastructure \(the orchestrator and all of the software and hardware that it depends on\) is provisioned, the infrastructure is not changed after it is made ready for use. New changes to the infrastructure are rolled out as new instances of infrastructure.
+
+</details>
 
 _**P5**_ _- If an infrastructure element’s provisioning is_ _**immutable**, its_ _**base configuration**_ \[23\],\[24\],\[25\] _will_ _**not**_ _be_ _**changed.**_
 
+<details>
+  <summary>Details:</summary>
+  
 In the immutable change management model \[38\], immutable infrastructure elements are built from scratch \(or from artifacts and configuration with a known state\) as a new instance of the element. The artifacts of an immutable infrastructure are composed of scripts, binaries, containers, images, and server templates while the configuration is the declaration of what that infrastructure should look like after it is instantiated. If the infrastructure element is hardware, such as a physical layer 1 networking device, it should be ‘flashed’ \(a complete replacement of its software\) for its artifact updates. Conversely changes to virtual infrastructure should be treated the same way, with a new virtual instance being deployed based on a current artifact.
 
 The _configuration_ for such a device should be managed with an atomic application of a versioned configuration file, which replaces all of the configuration on the device at once. This configuration should only apply to non base configuration and not the fundamental configuration used to define the provisioning of such a device itself.
 
 The choice of **change management model** is **separate** from a **deployment strategy**, such as a phoenix \[46\] or canary \[47\] deployment strategy. Any deployment strategy that supports immutable infrastructure \(i.e. when infrastructure such as a server needs a configuration or artifact change, a brand new instance of that infrastructure is created\) can be used.
 
+</details>
+
 _**P6**_ _- If an infrastructure element is_ _**immutable**_ \[26\],\[27\],\[28\],\[29\],\[30\],\[31\]_, its_ _**base**_ _**configuration**_ _is stored as a_ _**template**_ \[32\],\[33\],\[34\],\[35\],\[36\],\[37\]_._
 
+<details>
+  <summary>Details:</summary>
+  
 An infrastructure **image** resides at the lowest level and usually includes an operating system, but may also include an **orchestrator** for the higher level applications or any other dependencies that have a low rate of change but are needed for applications. This **image** is managed using a **template** **system** with **versioning** \(e.g. a versioned image of an operating system\) and minimizes the MTTR\[44\] \(mean time to recovery\) and deployment time of the infrastructure.
+
+</details>
 
 _**P7**_ _- If there is_ _**configuration**_ _outside of an infrastructure element’s template, it is_ _**versioned**_ _and stored in_ _**source control**_ \[41\],\[43\]_._
 
+<details>
+  <summary>Details:</summary>
+  
 Any configuration that is applied after an infrastructure’s base image/template has been created \(also called **bootstrapping**\) will be applied **before** the infrastructure is considered ready for use. After the element is in use, no more configuration is allowed.
+
+</details>
 
 _**P8**_ _- If an infrastructure element is_ _**immutable**, the_ _**dependencies**_ _of the applications that run on that infrastructure element will be_ _**decoupled**_ \[48\],\[49\],\[50\],\[51\]\[52\],\[53\] _from that_ _**infrastructure element**_
 
+<details>
+  <summary>Details:</summary>
+  
 An infrastructure element such as a generic host server, a network device, or a storage device, has a different rate of change with respect to, and is separate from, the applications that are deployed on or in relation to those elements. For instance, a generic host server \[42\] can act as a network router, but should still have separation between the dependencies that make it ready for use to the network applications deployed on that server.
 
 A microservice has all of its dependencies deployed with it during its deployment phase of the pipeline, which is separate from the infrastructure’s pipeline. These dependencies are decoupled from the infrastructure environment \(e.g. a node\) so the rate of change of the environment is separate from the microservices it hosts.
 
+</details>
+
 _**P9**_ _- If an infrastructure element is_ _**immutable**, the applications that run on that infrastructure element will run in an_ _**unprivileged mode**_ \[54\],\[55\]
 
+<details>
+  <summary>Details:</summary>
+  
 Applications should not require any elevated level of security permissions on the underlying infrastructure as they should have no need to make modifications to it.
+
+</details>
 
 _**P10**_ _- If an application and its dependencies are_ _**decoupled**_ _from the infrastructure element that it runs on, the_ _**application**_ _will be_ _**orchestrated**_ \[56\].
 
+<details>
+  <summary>Details:</summary>
+  
 All application components that run on the infrastructure, except data \[57\],\[58\],\[59\],\[60\],\[61\], will be orchestrated and built from versioned artifacts and configuration templates during each deploy.
+
+</details>
 
 _**P11**_ _- If an infrastructure element provides a_ _**service**_ \[62\],\[63\],\[64\],\[65\]_, that service will be available via_ _**service discovery.**_
 
@@ -55,7 +95,12 @@ _**P12**_ _- If an infrastructure is_ _**immutable**, its changes will be manage
 
 _**P13**_ _- If_ _**artifacts**_ \[69\],\[70\] _are_ _**provisioned**_ _as new_ _**immutable**_ _**infrastructure**_ _**elements**, they are deployed using_ _**templates**._
 
+<details>
+  <summary>Details:</summary>
+  
 The pipeline for low level infrastructure artifacts should combine them into templates and/or images which reduces the provisioning time for everything dependent on them.
+
+</details>
 
 _**P14**_ _- If an immutable infrastructure has a change management pipeline, the_ _**change management pipeline**_ _applies_ _**tests**_ \[71\],\[72\],\[73\],\[74\],\[75\],\[76\] _to the codebase with increasing levels of complexity._
 
@@ -63,9 +108,14 @@ _**P15**_ _- If the immutable or idempotent infrastructure has dependencies, the
 
 _**P16**_ _- If the immutable or idempotent infrastructure has a dependency, that_ _**dependency**_ _will be_ _**delivered**_ \[78\] _from a_ _**provider**_ _to a_ _**consumer**_ \[79\] _in the form of a_ _**library**_ \[80\]\[81\] _or a_ _**service instance**_ \[82\] _via a_ _**pipeline**._
 
+<details>
+  <summary>Details:</summary>
+  
 All software components delivered by a provider need to have the ability to be integration **tested** \[85\],\[86\] using the consumer’s pipeline \[95\] in a non-production environment. This should be via the consumer’s own pipeline via a library or a self-serviced instance, or a hosted environment \[83\] given by the provider.
 
 The software should resist **breaking** the **contract** formed **between** the **provider** of that software and the **consumer** of that software. This means paying attention to forward and backward compatibility \[87\],\[88\],\[89\],\[90\],\[91\],\[92\] with respect to interfaces between the provider and consumer. Any breaks in compatibility should force a major version \[93\],\[94\] change.
+
+</details>
 
 **LICENSE**
 
