@@ -1,8 +1,6 @@
----
-description: How cloud native organizations deliver software using pipelines
----
-
 # Cloud Native Microservice Principles
+
+## How cloud native organizations deliver software using pipelines
 
 **Cloud Native Microservices Writ Large**
 
