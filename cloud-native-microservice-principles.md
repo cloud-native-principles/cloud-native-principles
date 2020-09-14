@@ -52,7 +52,7 @@ _**P12**_ _- If a pipeline_ _**provisions network infrastructure**, it will be_ 
 
 _**P13**_ _- If a_ _**provider**_ _for network infrastructure delivers_ _**software**_ _or_ _**hardware**, it will be delivered to the_ _**consumer**_ _as a_ _**library dependency**_ _or_ _**service instance**_ _\(whether self service or hosted\)._
 
-_**P14**_ _- If the provider of networking software delivers_ _**cloud native service chains**, the service chains will be_ _**composed**_ _of_ _**immutable microservices**_ _with_ _**declarative APIs**_,\[41],\[42\],\[43\],\[44\]_._
+_**P14**_ _- If the provider of networking software delivers_ _**cloud native service chains**, the service chains will be_ _**composed**_ _of_ _**immutable microservices**_ _with_ _**declarative APIs**_,\[41\],\[42\],\[43\],\[44\]_._
 
 Cloud native network functions can be composed with one another. During this composition their configuration is not modified after deployment \(immutable\), designates the outcome of the network that is wanted \(declarative\), and not steps of how to get to that outcome \(imperative\).
 
@@ -70,7 +70,8 @@ The cloud native network functions themselves are developed in such a way as to 
 
 **LICENSE**
 
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+  
+This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
 
 **LIST OF CONTRIBUTORS**
 

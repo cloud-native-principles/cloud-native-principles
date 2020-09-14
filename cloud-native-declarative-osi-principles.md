@@ -1,6 +1,6 @@
 # Cloud Native Declarative OSI Principles
 
-The best practices of cloud native infrastructure writ large should be applied to networking infrastructure in the small. When describing network infrastructure in a cloud native manner, the specific challenges for provisioning each OSI \[1\],\[2\],\[3\],\[4\],\[5\],\[6\] layer need to be addressed in order to minimize the usual toil associated with provisioning, deploying functionality into, and managing complex networks. **Cloud native networking** addresses **provisioning** the **fabric** at layers 1 \(physical layer\) \[7\] and some of layer 2 \(data-link layer: physical & virtual layer 2 switches\) \[8\],\[9\], and providing **cloud native network functions (CNFs)** that are the orchestrated implementation of layers 2 \(data-link layer: data units \(frames\) organization, error detection, and flow control\), 3 \[10\] \(network layer \[11\], including data planes \[12\],\[13\] and control planes \[14\]\), 4 \(transport layer\) \[15\],\[16\], and the applications layer\(s\) \[17\],\[18\] 5 \(session layer\) \[19\], 6 \(presentation layer\) \[20\], and 7 \(application layer\) \[21\].
+The best practices of cloud native infrastructure writ large should be applied to networking infrastructure in the small. When describing network infrastructure in a cloud native manner, the specific challenges for provisioning each OSI \[1\],\[2\],\[3\],\[4\],\[5\],\[6\] layer need to be addressed in order to minimize the usual toil associated with provisioning, deploying functionality into, and managing complex networks. **Cloud native networking** addresses **provisioning** the **fabric** at layers 1 \(physical layer\) \[7\] and some of layer 2 \(data-link layer: physical & virtual layer 2 switches\) \[8\],\[9\], and providing **cloud native network functions \(CNFs\)** that are the orchestrated implementation of layers 2 \(data-link layer: data units \(frames\) organization, error detection, and flow control\), 3 \[10\] \(network layer \[11\], including data planes \[12\],\[13\] and control planes \[14\]\), 4 \(transport layer\) \[15\],\[16\], and the applications layer\(s\) \[17\],\[18\] 5 \(session layer\) \[19\], 6 \(presentation layer\) \[20\], and 7 \(application layer\) \[21\].
 
 _**P1**_ _- If a pipeline provisions network infrastructure_ \[22\]_, it will be_ _**provisioned**_ _and_ _**managed**_ _using_ _**declarative configuration**_ \[23\],\[24\],\[25\],\[26\]_._
 
@@ -52,7 +52,8 @@ _**P14**_ _- If a_ _**cloud native network function developer**_ _creates networ
 
 **LICENSE**
 
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+  
+This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
 
 **LIST OF CONTRIBUTORS**
 
