@@ -2,7 +2,12 @@
 
 _**P1**_ _- If infrastructure is_ _**immutable**, it is easily_ _**reproduced**_ \[1\],\[2\]_,_ _**consistent**_ \[3\], _**disposable**_ \[4\],\[5\]_, will have a_ _**repeatable**_ \[6\] _**provisioning process**, and will not have configuration or artifacts that are modifiable in place._
 
+<details>
+  <summary>Click to expand!</summary>
+  
 Many qualities characterize an immutable process. Reproducibility, consistency, disposability and repeatability are mandatory attributes in any well designed infrastructure process, including an immutable one.
+
+</details>
 
 _**P2**_ _- If the provisioning of cloud native infrastructure is dynamic, it will use unattended code execution_ \[7\]\[8\]\[9\] _with declarative configuration_ \[10\],\[11\],\[12\],\[13\],\[14\]_._
 
