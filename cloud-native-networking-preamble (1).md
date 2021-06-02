@@ -2,7 +2,7 @@
 description: Introduction
 ---
 
-# Introduction
+# Cloud Native Networking Preamble
 
 **What is a Cloud Native Network Function \(CNF\)?**
 
@@ -22,7 +22,7 @@ Cloud native applications are deployed onto immutable infrastructure \(generic h
 
 **How are cloud native systems configured?**
 
-Cloud native systems are configured declaratively \[8\]. This means that the system configuration declares "what" a loosely coupled system should look like, not "how" it should be created, updated, or deleted. The tooling  determines the "how" of the application \(e.g., the orchestrator, operators, and CRDs\).
+Cloud native systems are configured declaratively \[8\]. This means that the system configuration declares "what" a loosely coupled system should look like, not "how" it should be created, updated, or deleted. The tooling determines the "how" of the application \(e.g., the orchestrator, operators, and CRDs\).
 
 **So what is a CNF, actually?**
 
@@ -34,7 +34,6 @@ Service providers currently find themselves at a unique transition point within 
 
 **LICENSE**
 
-  
 This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
 
 You are free to:

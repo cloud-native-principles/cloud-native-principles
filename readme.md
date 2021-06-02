@@ -1,4 +1,4 @@
-# Cloud Native Principles - Intro + Fundamental Concepts
+# Contributing and Fundamentals
 
 To talk about cloud native applications and systems, we need to define cloud native. CNCF provides a high-level overview of what it means to be cloud native and lists some implementations and the benefits they provide in the [CNCF Cloud Native Definition v1.0](https://github.com/cncf/toc/blob/master/DEFINITION.md).
 
@@ -29,7 +29,7 @@ When these principles are implemented, they lead to benefits such as:
 * Increased scalability
 * Lowered risk
 
-Defining these concepts help in applying cloud native methodologies to different technology domains. For instance, in the networking and communication service provider spaces, the [Cloud Native Networking papers](cloud-native-networking-preamble.md) illustrate this.
+Defining these concepts help in applying cloud native methodologies to different technology domains. For instance, in the networking and communication service provider spaces, the [Cloud Native Networking papers](cloud-native-networking-preamble%20%281%29.md) illustrate this.
 
 ## Contributing to and Using this content
 
@@ -47,7 +47,6 @@ How to contribute:
   * [create a PR](https://github.com/cloud-native-principles/cloud-native-principles/pulls)
 
 **LICENSE**
-
 
 This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
 
